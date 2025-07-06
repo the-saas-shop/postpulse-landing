@@ -13,30 +13,25 @@ from pathlib import Path
 
 # Configuration
 PORT = 8000
-DIRECTORY = "v2"  # Serve the v2 directory
+DIRECTORY = "."  # Serve the current directory
 
 class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
 
 def main():
-    # Check if v2 directory exists
-    if not os.path.exists(DIRECTORY):
-        print(f"Error: Directory '{DIRECTORY}' not found!")
-        print("Make sure you're running this from the lemonoid-landing directory.")
-        sys.exit(1)
-    
-    # Check if index.html exists in v2 directory
-    index_path = Path(DIRECTORY) / "index.html"
+    # Check if index.html exists in the current directory
+    index_path = Path("index.html")
     if not index_path.exists():
-        print(f"Error: index.html not found in {DIRECTORY} directory!")
+        print(f"Error: index.html not found in the current directory!")
+        print("Make sure you're running this from the lemonoid-landing directory.")
         sys.exit(1)
     
     # Start the server
     with socketserver.TCPServer(("", PORT), CustomHTTPRequestHandler) as httpd:
         server_url = f"http://localhost:{PORT}"
         print(f"🍋 Lemonoid Landing Page Server")
-        print(f"📁 Serving directory: {DIRECTORY}")
+        print(f"📁 Serving directory: current directory")
         print(f"🌐 Server running at: {server_url}")
         print(f"🚀 Opening browser...")
         print(f"⏹️  Press Ctrl+C to stop the server")
