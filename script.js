@@ -103,7 +103,7 @@ $(document).ready(function() {
 
     // Form validation and submission
     $('#earlyAccessForm').on('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Always prevent default submission
         
         // Clear previous errors
         $('.error-message').remove();
@@ -143,21 +143,41 @@ $(document).ready(function() {
             isValid = false;
         }
         
-        if (isValid) {
-            // Show loading state
-            var submitBtn = $(this).find('button[type="submit"]');
-            var originalText = submitBtn.html();
-            submitBtn.html('<i class="fas fa-spinner fa-spin"></i> Submitting...');
-            submitBtn.prop('disabled', true);
-            
-            // Simulate form submission
-            setTimeout(function() {
-                showSuccessMessage();
-                $('#earlyAccessForm')[0].reset();
-                submitBtn.html(originalText);
-                submitBtn.prop('disabled', false);
-            }, 2000);
+        if (!isValid) {
+            return false;
         }
+        
+        // Show loading state
+        var submitBtn = $(this).find('button[type="submit"]');
+        var originalText = submitBtn.html();
+        submitBtn.html('<i class="fas fa-spinner fa-spin"></i> Submitting...');
+        submitBtn.prop('disabled', true);
+        
+        // Submit to Netlify
+        var formData = new FormData(this);
+        formData.append('form-name', 'early-access'); // Required for Netlify forms
+        
+        fetch('/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(function() {
+            // Show success popup
+            showSuccessMessage();
+            // Reset form
+            $('#earlyAccessForm')[0].reset();
+        })
+        .catch(function(error) {
+            console.error('Error:', error);
+            // Show error message
+            showError('#earlyAccessForm', 'Sorry, there was an error submitting your form. Please try again.');
+        })
+        .finally(function() {
+            // Reset button state
+            submitBtn.html(originalText);
+            submitBtn.prop('disabled', false);
+        });
     });
 
     function showError(fieldId, message) {
@@ -171,11 +191,21 @@ $(document).ready(function() {
                 <div class="success-content">
                     <i class="fas fa-check-circle"></i>
                     <h3>Welcome to Early Access!</h3>
-                    <p>Thank you for joining Lemonoid's early access program. We'll be in touch soon with exclusive updates and early access to our platform.</p>
-                    <button class="btn btn-accent" onclick="$(this).closest('.success-message').fadeOut();">
-                        <i class="fas fa-times"></i>
-                        Close
-                    </button>
+                    <p>Thank you for joining Lemonoid's early access program. We've received your application and will be in touch within 48 hours with exclusive updates and early access to our platform.</p>
+                    <div class="success-actions">
+                        <button class="btn btn-accent" onclick="$(this).closest('.success-message').fadeOut();">
+                            <i class="fas fa-check"></i>
+                            Got it!
+                        </button>
+                        <button class="btn btn-outline" onclick="window.location.href='mailto:hello@lemonoid.ai';">
+                            <i class="fas fa-envelope"></i>
+                            Contact Us
+                        </button>
+                    </div>
+                    <div class="success-note">
+                        <i class="fas fa-gift"></i>
+                        <span>Remember: You'll get free access during our beta stage!</span>
+                    </div>
                 </div>
             </div>
         `;
@@ -183,12 +213,12 @@ $(document).ready(function() {
         $('body').append(successHtml);
         $('.success-message').fadeIn();
         
-        // Auto-close after 5 seconds
+        // Auto-close after 8 seconds (longer time for better UX)
         setTimeout(function() {
             $('.success-message').fadeOut(function() {
                 $(this).remove();
             });
-        }, 5000);
+        }, 8000);
     }
 
     // Add some interactive effects
