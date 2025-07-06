@@ -157,16 +157,12 @@ $(document).ready(function() {
         var formData = new FormData(this);
         formData.append('form-name', 'early-access'); // Required for Netlify forms
         
-        // Debug: Log the form data
-        console.log('Submitting form data:', Object.fromEntries(formData));
-        
         fetch('/', {
             method: 'POST',
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString()
         })
         .then(function(response) {
-            console.log('Form submission response:', response.status, response.statusText);
             if (!response.ok) {
                 throw new Error('Form submission failed with status: ' + response.status);
             }
