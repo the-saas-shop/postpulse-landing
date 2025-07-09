@@ -101,54 +101,151 @@ $(document).ready(function() {
         }, 800, 'swing');
     });
 
+    // Real-time validation
+    var validationRules = {
+        businessName: {
+            required: true,
+            minLength: 2,
+            messages: {
+                required: 'Business name is required',
+                minLength: 'Business name must be at least 2 characters long'
+            }
+        },
+        email: {
+            required: true,
+            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            messages: {
+                required: 'Email address is required',
+                pattern: 'Please enter a valid email address'
+            }
+        },
+        phone: {
+            required: true,
+            minLength: 8,
+            messages: {
+                required: 'Phone number is required',
+                minLength: 'Please enter a valid phone number'
+            }
+        },
+        businessType: {
+            required: true,
+            messages: {
+                required: 'Please select your business type'
+            }
+        },
+        message: {
+            required: false,
+            maxLength: 500,
+            messages: {
+                maxLength: 'Message must be less than 500 characters'
+            }
+        }
+    };
+
+    // Real-time validation on input/blur
+    $('#earlyAccessForm input, #earlyAccessForm select, #earlyAccessForm textarea').on('input blur', function() {
+        var fieldId = $(this).attr('id');
+        var fieldValue = $(this).val().trim();
+        var rules = validationRules[fieldId];
+        
+        if (rules) {
+            var isValid = validateField(fieldId, fieldValue, rules);
+            updateFieldState(fieldId, isValid, rules);
+        }
+    });
+
+    function validateField(fieldId, value, rules) {
+        var isValid = true;
+        var message = '';
+        
+        // Check required
+        if (rules.required && value === '') {
+            isValid = false;
+            message = rules.messages.required;
+        }
+        // Check minimum length
+        else if (rules.minLength && value.length < rules.minLength) {
+            isValid = false;
+            message = rules.messages.minLength;
+        }
+        // Check pattern (for email)
+        else if (rules.pattern && !rules.pattern.test(value)) {
+            isValid = false;
+            message = rules.messages.pattern;
+        }
+        // Check maximum length
+        else if (rules.maxLength && value.length > rules.maxLength) {
+            isValid = false;
+            message = rules.messages.maxLength;
+        }
+        
+        // Store validation result
+        $('#' + fieldId).data('isValid', isValid);
+        $('#' + fieldId).data('validationMessage', message);
+        
+        return isValid;
+    }
+
+    function updateFieldState(fieldId, isValid, rules) {
+        var $field = $('#' + fieldId);
+        var $group = $field.parent();
+        var $message = $group.find('.validation-message');
+        var message = $field.data('validationMessage');
+        
+        // Remove previous states
+        $group.removeClass('has-error has-success');
+        $message.removeClass('error success show');
+        
+        // Only show validation states if field has been interacted with
+        if ($field.val().trim() !== '' || $field.is(':focus')) {
+            if (isValid) {
+                // Only show success for required fields
+                if (rules.required) {
+                    $group.addClass('has-success');
+                    $message.addClass('success show').text('Looks good!');
+                }
+            } else {
+                $group.addClass('has-error');
+                $message.addClass('error show').text(message);
+            }
+        } else {
+            // Field is empty and not focused - show neutral state
+            $message.text('').removeClass('show');
+        }
+    }
+
     // Form validation and submission
     $('#earlyAccessForm').on('submit', function(e) {
         e.preventDefault(); // Always prevent default submission
         
-        // Clear previous errors
-        $('.error-message').remove();
-        $('.error').removeClass('error');
-        
         var isValid = true;
+        var $form = $(this);
         
-        // Validate business name
-        var businessName = $('#businessName').val().trim();
-        if (businessName === '') {
-            showError('#businessName', 'Business name is required');
-            isValid = false;
-        }
-        
-        // Validate email
-        var email = $('#email').val().trim();
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (email === '') {
-            showError('#email', 'Email is required');
-            isValid = false;
-        } else if (!emailRegex.test(email)) {
-            showError('#email', 'Please enter a valid email address');
-            isValid = false;
-        }
-        
-        // Validate phone
-        var phone = $('#phone').val().trim();
-        if (phone === '') {
-            showError('#phone', 'Phone number is required');
-            isValid = false;
-        }
-        
-        // Validate business type
-        var businessType = $('#businessType').val();
-        if (businessType === '') {
-            showError('#businessType', 'Please select your business type');
-            isValid = false;
-        }
+        // Validate all fields
+        $form.find('input, select, textarea').each(function() {
+            var fieldId = $(this).attr('id');
+            var fieldValue = $(this).val().trim();
+            var rules = validationRules[fieldId];
+            
+            if (rules) {
+                var fieldValid = validateField(fieldId, fieldValue, rules);
+                updateFieldState(fieldId, fieldValid, rules);
+                
+                // Only mark form as invalid if field is required or has content but is invalid
+                if (!fieldValid && (rules.required || fieldValue !== '')) {
+                    isValid = false;
+                }
+            }
+        });
         
         if (!isValid) {
+            // Focus on first invalid field
+            $form.find('.has-error').first().find('input, select').focus();
             return false;
         }
         
         // Show loading state
-        var submitBtn = $(this).find('button[type="submit"]');
+        var submitBtn = $form.find('button[type="submit"]');
         var originalText = submitBtn.html();
         submitBtn.html('<i class="fas fa-spinner fa-spin"></i> Submitting...');
         submitBtn.prop('disabled', true);
@@ -168,12 +265,16 @@ $(document).ready(function() {
             }
             // Show success popup
             showSuccessMessage();
-            // Reset form
-            $('#earlyAccessForm')[0].reset();
+            // Reset form and validation states
+            $form[0].reset();
+            $form.find('.form-group').removeClass('has-error has-success');
+            $form.find('.validation-message').removeClass('error success show').text('');
+            // Clear textarea data
+            $form.find('textarea').removeData('isValid validationMessage');
         })
         .catch(function(error) {
             // Show error message
-            showError('#earlyAccessForm', 'Sorry, there was an error submitting your form. Please try again.');
+            showFormError('Sorry, there was an error submitting your form. Please try again.');
         })
         .finally(function() {
             // Reset button state
@@ -182,9 +283,17 @@ $(document).ready(function() {
         });
     });
 
-    function showError(fieldId, message) {
-        $(fieldId).addClass('error');
-        $(fieldId).parent().append('<div class="error-message">' + message + '</div>');
+    function showFormError(message) {
+        var errorHtml = '<div class="error-message form-error" style="margin-top: 1rem; text-align: center;">' + message + '</div>';
+        $('.form-error').remove(); // Remove previous errors
+        $('#earlyAccessForm').append(errorHtml);
+        
+        // Auto-remove after 5 seconds
+        setTimeout(function() {
+            $('.form-error').fadeOut(function() {
+                $(this).remove();
+            });
+        }, 5000);
     }
 
     function showSuccessMessage() {

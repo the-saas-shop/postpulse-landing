@@ -1277,6 +1277,8 @@ h1, h2, h3, h4, h5, h6 {
     resize: vertical;
     min-height: 100px;
     border-radius: 16px;
+    box-sizing: border-box;
+    width: 100% !important;
 }
 
 .form-privacy {
@@ -1385,6 +1387,83 @@ h1, h2, h3, h4, h5, h6 {
 .error-message::before {
     content: "⚠";
     font-size: 14px;
+}
+
+/* Enhanced Validation Styles */
+.required {
+    color: #FCD42F;
+    font-weight: 600;
+    margin-left: 2px;
+}
+
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+    animation: shake 0.5s ease-in-out;
+}
+
+.form-group.has-success input,
+.form-group.has-success select,
+.form-group.has-success textarea {
+    border-color: #51cf66;
+    box-shadow: 0 0 0 2px rgba(81, 207, 102, 0.2);
+}
+
+.validation-message {
+    min-height: 20px;
+    font-size: 12px;
+    margin-top: 4px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.validation-message.show {
+    opacity: 1;
+}
+
+.validation-message.error {
+    color: #ff6b6b;
+}
+
+.validation-message.success {
+    color: #188569;
+}
+
+.validation-message.error::before {
+    content: "⚠";
+    font-size: 12px;
+}
+
+.validation-message.success::before {
+    content: "✓";
+    font-size: 12px;
+}
+
+.form-group {
+    transition: all 0.3s ease;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    transition: all 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 20%, 40%, 60%, 80% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70% {
+        transform: translateX(-5px);
+    }
+    15%, 35%, 55%, 75% {
+        transform: translateX(5px);
+    }
 }
 
 .success-message {
