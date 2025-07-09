@@ -676,13 +676,16 @@
 
     <!-- Hidden form for Netlify detection during build -->
     <form name="early-access" netlify netlify-honeypot="bot-field" hidden>
-        <input type="text" name="businessName" />
-        <input type="email" name="email" />
+        <input type="text" name="businessName" required/>
+        <input type="email" name="email" required/>
         <input type="tel" name="phone" />
-        <select name="businessType">
+        <select name="businessType" required>
             <option value="cafe">Cafe</option>
             <option value="restaurant">Restaurant</option>
             <option value="bar">Bar</option>
+            <option value="bakery">Bar</option>
+            <option value="hotel">Bar</option>
+            <option value="spa">Bar</option>
             <option value="other">Other</option>
         </select>
         <textarea name="message"></textarea>
