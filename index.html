@@ -131,12 +131,13 @@
                     <a href="#how-it-works">How It Works</a>
                     <a href="#why-lemonoid">Why Lemonoid</a>
                     <a href="#early-access">Early Access</a>
+                    <a href="#faq">FAQ</a>
                     <a href="#contact">Contact</a>
                 </nav>
                 <div class="header-actions">
                     <button class="btn btn-primary btn-header" id="headerCtaBtn">
                         <i class="fas fa-rocket"></i>
-                        Join Early Access
+                        Request Early Access
                     </button>
                     <button class="hamburger-menu" id="hamburgerBtn">
                         <span></span>
@@ -152,6 +153,7 @@
                 <a href="#how-it-works" class="mobile-menu-link">How It Works</a>
                 <a href="#why-lemonoid" class="mobile-menu-link">Why Lemonoid</a>
                 <a href="#early-access" class="mobile-menu-link">Early Access</a>
+                <a href="#faq" class="mobile-menu-link">FAQ</a>
                 <a href="#contact" class="mobile-menu-link">Contact</a>
             </div>
         </div>
@@ -183,23 +185,23 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <div class="hero-badge">
+                    <!-- <div class="hero-badge">
                         <i class="fas fa-star"></i>
                         <span>We Are Lemonoid</span>
-                    </div>
+                    </div> -->
                     <h1 class="hero-heading">
-                        Lemonoid helps you turn reviews into <span class="highlight rotating-text"
+                        Turn reviews into <span class="highlight rotating-text"
                             data-words="Revenue, Loyalty, 5-stars">Revenue</span>
                     </h1>
                     <p class="hero-subheading">
 
-                        AI-powered insights that help hospitality businesses increase revenue through smarter customer intelligence and competitor analysis!
+                        AI that tells you exactly what to change to drive more revenue.
                     </p>
                     <button class="btn btn-accent btn-hero" id="heroCtaBtn">
                         <i class="fas fa-rocket"></i>
-                        Join Early Access
+                        Request Early Access
                     </button>
-                    <div class="hero-stats">
+                    <!-- <div class="hero-stats">
                         <div class="stat-item">
                             <div class="stat-number">10k+</div>
                             <div class="stat-label">Reviews Analyzed</div>
@@ -212,7 +214,7 @@
                             <div class="stat-number">24/7</div>
                             <div class="stat-label">Monitoring</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="hero-dashboard">
@@ -356,8 +358,8 @@
     <section id="problem" class="problem-section">
         <div class="problem-content">
             <div class="problem-header">
-                <h2 class="problem-heading">You're Leaving Money on the Table</h2>
-                <p class="problem-subheading">Most hospitality or service business owners are missing critical revenue opportunities hidden in their customer feedback</p>
+                <h2 class="problem-heading">Stop Guessing What Customers Want</h2>
+                <p class="problem-subheading">Get specific actions like <strong>Your pasta dishes drive 40% more positive mentions, promote them</strong> or <strong>Slow service is costing you €2,000/month.</strong></p>
             </div>
             <div class="problem-stats">
                 <div class="problem-stat">
@@ -365,12 +367,12 @@
                     <div class="stat-text">Of owners don't act on customer feedback strategically</div>
                 </div>
                 <div class="problem-stat">
-                    <div class="stat-number">€30,000+</div>
-                    <div class="stat-text">Average loses per year from preventable customer complaints</div>
+                    <div class="stat-number">89%</div>
+                    <div class="stat-text">Of revenue-boosting opportunities hidden in existing reviews</div>
                 </div>
                 <div class="problem-stat">
-                    <div class="stat-number">Hours</div>
-                    <div class="stat-text">Most owners spend reading reviews but don't know what changes actually increase revenue</div>
+                    <div class="stat-number">25x Faster</div>
+                    <div class="stat-text">AI spots revenue patterns humans miss in months of reading</div>
                 </div>
             </div>
         </div>
@@ -382,7 +384,7 @@
             <div class="section-header">
                 <h2 class="section-heading">How It Works</h2>
                 <p class="section-subheading">
-                    Four simple steps to transform your customer feedback into increased revenue
+                    4 simple steps to transform your customer feedback into increased revenue
                 </p>
             </div>
             <div class="features-grid">
@@ -593,9 +595,9 @@
                     </p>
                     
                     <div class="form-group">
-                        <label for="businessName">Business Name <span class="required">*</span></label>
-                        <input type="text" id="businessName" name="businessName"
-                            placeholder="Your business name">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name"
+                            placeholder="Your full name">
                         <div class="validation-message"></div>
                     </div>
 
@@ -606,30 +608,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" placeholder="(+31) 6 xx xx xx xx">
-                        <div class="validation-message"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="businessType">Business Type <span class="required">*</span></label>
-                        <select id="businessType" name="businessType">
-                            <option value="">Select your business type</option>
-                            <option value="cafe">Cafe</option>
-                            <option value="restaurant">Restaurant</option>
-                            <option value="bar">Bar</option>
-                            <option value="bakery">Bakery</option>
-                            <option value="hotel">Hotel</option>
-                            <option value="spa">Spa</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <div class="validation-message"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Tell us about your business (optional)</label>
-                        <textarea id="message" name="message" rows="4"
-                            placeholder="What type of cuisine, atmosphere, or unique features does your business have?"></textarea>
+                        <label for="business">Tell us about your business (optional)</label>
+                        <textarea id="business" name="business" rows="4"
+                            placeholder="What type of business do you run? Restaurant, hotel, cafe, etc."></textarea>
                         <div class="validation-message"></div>
                     </div>
 
@@ -643,6 +624,70 @@
                             and will never share your information.</p>
                     </div>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-heading">Frequently Asked Questions</h2>
+                <p class="section-subheading">
+                    Everything you need to know about Lemonoid's AI-powered insights
+                </p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" data-faq="1">
+                        <h3>How is this different from other review management tools?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-1">
+                        <p>Most review tools just show you ratings and comments. Lemonoid goes deeper - we use AI to identify specific revenue opportunities hidden in your feedback. Instead of generic insights like "improve service," you get actionable recommendations like "Your pasta dishes get 40% more positive mentions than competitors - promote them in your marketing" or "Slow service during lunch costs you €2,000/month based on review patterns."</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" data-faq="2">
+                        <h3>What kind of businesses does this work for?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-2">
+                        <p>Lemonoid works for any hospitality or service business that receives online reviews. This includes restaurants, cafes, bars, hotels, spas, salons, and similar businesses. Our AI analyzes customer feedback patterns across all major review platforms (Google, Yelp, TripAdvisor, etc.) to identify revenue-boosting opportunities specific to your industry and local market.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" data-faq="3">
+                        <h3>How much time does this take?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-3">
+                        <p>Almost none! After a simple 5-minute setup, Lemonoid runs automatically in the background. You'll receive a 2-minute weekly report with specific actions to take, plus access to a comprehensive dashboard with real-time sentiment analysis, competitor comparisons, and revenue opportunity tracking. No more spending hours reading through reviews - our AI does the analysis and gives you only the insights that can drive more revenue. Most business owners save 12+ hours per week while getting better results.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" data-faq="4">
+                        <h3>Do you integrate with my current systems?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-4">
+                        <p>Yes! Lemonoid connects with major review platforms (Google My Business, Yelp, TripAdvisor) and can integrate with popular restaurant management systems, POS systems, and booking platforms. During our early access program, we'll work with you to ensure smooth integration with your existing workflow. No complex installations - most integrations are completed in under 15 minutes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" data-faq="5">
+                        <h3>What if I don't see results?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-5">
+                        <p>We're confident in our AI's ability to find revenue opportunities, but if you don't see measurable improvements within 60 days of implementing our recommendations, we'll refund your investment completely. Plus, during the early access phase, you get the service completely free, so there's no risk. Our goal is your success - if Lemonoid doesn't help you make more money, we haven't done our job.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -684,19 +729,9 @@
 
           <!-- Hidden form for Netlify detection during build -->
       <form name="early-access" netlify netlify-honeypot="bot-field" hidden>
-        <input type="text" name="businessName" />
+        <input type="text" name="name" />
         <input type="email" name="email" />
-        <input type="tel" name="phone" />
-        <select name="businessType">
-            <option value="cafe">Cafe</option>
-            <option value="restaurant">Restaurant</option>
-            <option value="bar">Bar</option>
-            <option value="bakery">Bakery</option>
-            <option value="hotel">Hotel</option>
-            <option value="spa">Spa</option>
-            <option value="other">Other</option>
-        </select>
-        <textarea name="message"></textarea>
+        <textarea name="business"></textarea>
         <input name="bot-field" />
     </form>
 

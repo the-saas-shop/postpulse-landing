@@ -103,12 +103,12 @@ $(document).ready(function() {
 
     // Real-time validation
     var validationRules = {
-        businessName: {
+        name: {
             required: true,
             minLength: 2,
             messages: {
-                required: 'Business name is required',
-                minLength: 'Business name must be at least 2 characters long'
+                required: 'Name is required',
+                minLength: 'Name must be at least 2 characters long'
             }
         },
         email: {
@@ -119,25 +119,11 @@ $(document).ready(function() {
                 pattern: 'Please enter a valid email address'
             }
         },
-        phone: {
-            required: true,
-            minLength: 8,
-            messages: {
-                required: 'Phone number is required',
-                minLength: 'Please enter a valid phone number'
-            }
-        },
-        businessType: {
-            required: true,
-            messages: {
-                required: 'Please select your business type'
-            }
-        },
-        message: {
+        business: {
             required: false,
             maxLength: 500,
             messages: {
-                maxLength: 'Message must be less than 500 characters'
+                maxLength: 'Business description must be less than 500 characters'
             }
         }
     };
@@ -351,4 +337,19 @@ $(document).ready(function() {
             $(this).css('z-index', '');
         }
     );
+
+    // FAQ Accordion functionality
+    $('.faq-question').on('click', function(e) {
+        e.preventDefault();
+        var $question = $(this);
+        var $answer = $question.next('.faq-answer');
+        
+        // Close other items first
+        $('.faq-question').not($question).removeClass('active');
+        $('.faq-answer').not($answer).removeClass('active');
+        
+        // Toggle current item
+        $question.toggleClass('active');
+        $answer.toggleClass('active');
+    });
 }); 
