@@ -1050,16 +1050,16 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 64px;
     width: 64px;
     height: 64px;
-    color: #666666;
-    fill: #666666;
+    color: #FCD42F;
+    fill: #FCD42F;
     transition: all 0.3s ease-in-out;
 }
 
 .feature-card:hover .feature-icon i,
 .feature-card:hover .feature-icon svg {
     transform: scale(1.2) rotate(5deg);
-    color: #FCD42F;
-    fill: #FCD42F;
+    color: #666666;
+    fill: #666666;
 }
 
 .feature-card h3 {
