@@ -932,7 +932,7 @@ h1, h2, h3, h4, h5, h6 {
 /* New Why Lemonoid Section */
 .why-lemonoid-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-top: 48px;
 }
@@ -1000,7 +1000,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
-    color: #FFFFFF;
+    color: #cbcbcb;
     margin: 0;
     transition: all 0.3s ease-in-out;
 }
@@ -1378,7 +1378,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq-answer.active {
-    padding: 0 24px 24px 24px;
+    padding: 12px 24px 24px 24px;
     max-height: 500px;
     opacity: 1;
 }
@@ -1891,6 +1891,26 @@ html {
 @media (min-width: 769px) {
     .mobile-shape {
         display: none !important;
+    }
+}
+
+/* Tablet Design */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .why-lemonoid-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .why-lemonoid-card {
+        padding: 20px;
+    }
+    
+    .why-lemonoid-card h3 {
+        font-size: 18px;
+    }
+    
+    .why-lemonoid-card p {
+        font-size: 15px;
     }
 }
 
@@ -2572,7 +2592,7 @@ html {
     }
 
     .faq-answer.active {
-        padding: 0 20px 20px 20px;
+        padding: 8px 20px 20px 20px;
     }
 
     .faq-answer p {
