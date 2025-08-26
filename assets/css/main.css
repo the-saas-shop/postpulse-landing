@@ -1,0 +1,440 @@
+/* CSS Reset & Base Styles */
+*, *::before, *::after { 
+    box-sizing: border-box; 
+}
+
+* { 
+    margin: 0; 
+}
+
+body { 
+    line-height: 1.5; 
+    -webkit-font-smoothing: antialiased; 
+}
+
+img, picture, video, canvas, svg { 
+    display: block; 
+    max-width: 100%; 
+}
+
+input, button, textarea, select { 
+    font: inherit; 
+}
+
+/* Custom Fonts */
+@font-face {
+    font-family: 'Motter Tektura';
+    src: url('../fonts/Motter Tektura Normal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* CSS Custom Properties */
+:root {
+    /* Colors from CLAUDE.md */
+    --primary: #E66765;
+    --accent-1: #6F5E76;
+    --background: #F8F6EF;
+    --dark-text: #211103;
+    --white: #ffffff;
+    --gray-100: #f3f4f6;
+    --gray-500: #9ca3af;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    
+    /* Typography */
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --logo-font-family: 'Motter Tektura', 'Poppins', sans-serif;
+    
+    /* Layout */
+    --container-max: 1200px;
+    --section-padding: 2rem 1rem;
+    
+    /* Mobile-first typography scale */
+    --font-xs: 0.75rem;    /* 12px */
+    --font-sm: 0.875rem;   /* 14px */
+    --font-base: 1rem;     /* 16px */
+    --font-lg: 1.125rem;   /* 18px */
+    --font-xl: 1.25rem;    /* 20px */
+    --font-2xl: 1.5rem;    /* 24px */
+    --font-3xl: 1.875rem;  /* 30px */
+}
+
+/* Base Styles - Mobile First */
+body {
+    font-family: var(--font-family);
+    color: var(--dark-text);
+    background-color: var(--background);
+    font-size: var(--font-base);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Hero Section - Mobile First */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    background-color: var(--background);
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo-wrapper {
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+/* Brand Name */
+.brand-name {
+    font-weight: 600;
+    font-family: var(--logo-font-family);
+    font-size: var(--font-3xl);
+    color: #211103;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+/* Hero Headline */
+.hero-headline {
+    font-size: var(--font-2xl);
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--dark-text);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+}
+
+.text-light {
+    font-weight: 400;
+    color: #211103;
+}
+
+.text-muted {
+    color: #211103;
+    font-weight: 400;
+}
+
+.text-accent {
+    color: var(--primary);
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+/* Hero Subheading */
+.hero-subheading {
+    font-size: var(--font-base);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--gray-700);
+    margin-bottom: 2rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Signup Form */
+.signup-form {
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    display: flex;
+    height: 60px;
+    gap: 4px;
+    background: var(--white);
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
+.form-row:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(230, 103, 101, 0.1);
+}
+
+.email-input {
+    flex: 1;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    font-size: var(--font-base);
+    background: transparent;
+    outline: none !important;
+    color: var(--dark-text);
+    border-radius: 8px;
+}
+
+.email-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.email-input::placeholder {
+    color: var(--gray-500);
+}
+
+.btn-submit {
+    background: var(--accent-1);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    font-size: var(--font-base);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    border-radius: 8px;
+}
+
+.btn-submit:hover {
+    background: #5d4f66;
+    transform: translateX(-2px);
+}
+
+.btn-submit:focus {
+    outline: 2px solid var(--accent-1);
+    outline-offset: 2px;
+}
+
+.btn-submit i {
+    width: 16px;
+    height: 16px;
+}
+
+/* Launch Notice */
+.launch-notice {
+    color: var(--gray-500);
+    font-size: var(--font-sm);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.rocket-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--primary);
+    vertical-align: middle;
+}
+
+/* Success Message */
+.success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    border: 2px solid var(--primary);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    display: none;
+}
+
+.success-content {
+    color: var(--dark-text);
+}
+
+.success-content i {
+    font-size: 48px;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.success-content h3 {
+    font-size: var(--font-xl);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+}
+
+.success-content p {
+    font-size: var(--font-base);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: var(--gray-700);
+}
+
+.success-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-close {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: var(--font-sm);
+}
+
+.btn-close:hover {
+    background: #d55553;
+    transform: translateY(-1px);
+}
+
+/* Error States */
+.form-error {
+    color: #ef4444;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: var(--font-sm);
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.email-input.error {
+    border-color: #ef4444 !important;
+}
+
+/* Loading States */
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-submit .loading {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Tablet: 768px+ */
+@media (min-width: 768px) {
+    :root {
+        --section-padding: 3rem 2rem;
+        --font-2xl-md: 2rem;     /* 32px */
+        --font-3xl-md: 2.25rem;  /* 36px */
+    }
+    
+    .container {
+        padding: 0 2rem;
+    }
+    
+    .hero-content {
+        max-width: 600px;
+    }
+    
+    .logo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .brand-name {
+        font-size: var(--font-3xl-md);
+    }
+    
+    .hero-headline {
+        font-size: var(--font-2xl-md);
+    }
+    
+    .form-row {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .email-input {
+        font-size: var(--font-lg);
+        padding: 1rem 1.5rem;
+    }
+    
+    .btn-submit {
+        font-size: var(--font-lg);
+        padding: 1rem 2rem;
+    }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+    :root {
+        --section-padding: 4rem 2rem;
+        --font-3xl-lg: 3rem;     /* 48px */
+    }
+    
+    .hero-content {
+        max-width: 700px;
+    }
+    
+    .brand-name {
+        font-size: var(--font-3xl-lg);
+        margin-bottom: 2.5rem;
+    }
+    
+    .hero-headline {
+        font-size: 2.5rem;
+        /* margin-bottom: 3rem; */
+    }
+    
+    .logo {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* Large Desktop: 1280px+ */
+@media (min-width: 1280px) {
+    .hero-headline {
+        font-size: 3rem;
+    }
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Remove focus outline from email input since parent handles focus */
+.email-input:focus-visible {
+    outline: none !important;
+}
+
+/* Smooth transitions */
+* {
+    transition: outline 0.2s ease;
+}
