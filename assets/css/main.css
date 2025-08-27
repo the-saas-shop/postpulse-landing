@@ -161,17 +161,19 @@ body {
 /* Signup Form */
 .signup-form {
     margin-bottom: 1rem;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0 20px;
 }
 
 .form-row {
     display: flex;
-    height: 60px;
-    gap: 4px;
+    height: 56px;
     background: var(--white);
     border: 2px solid #e5e7eb;
     border-radius: 12px;
-    padding: 4px;
+    overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.2s ease;
 }
@@ -184,17 +186,16 @@ body {
 .email-input {
     flex: 1;
     border: none;
-    padding: 0.5rem 1.25rem;
-    font-size: var(--font-base);
+    padding: 0 16px;
+    font-size: 16px;
     background: transparent;
-    outline: none !important;
+    outline: none;
     color: var(--dark-text);
-    border-radius: 8px;
+    min-width: 0;
 }
 
 .email-input:focus {
-    outline: none !important;
-    box-shadow: none !important;
+    outline: none;
 }
 
 .email-input::placeholder {
@@ -205,16 +206,17 @@ body {
     background: var(--accent-1);
     color: var(--white);
     border: none;
-    padding: 0.5rem 1.5rem;
+    padding: 0 16px;
     font-weight: 600;
-    font-size: var(--font-base);
+    font-size: 14px;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 6px;
     white-space: nowrap;
-    border-radius: 8px;
+    flex-shrink: 0;
+    width: 90px;
 }
 
 .btn-submit:hover {
@@ -376,15 +378,24 @@ body {
         font-size: var(--font-2xl-md);
     }
     
+    .signup-form {
+        max-width: 500px;
+        padding: 0;
+    }
+    
+    .form-row {
+        height: 64px;
+    }
     
     .email-input {
         font-size: var(--font-lg);
-        padding: 1rem 1.5rem;
+        padding: 0 20px;
     }
     
     .btn-submit {
-        font-size: var(--font-lg);
-        padding: 1rem 2rem;
+        font-size: var(--font-base);
+        padding: 0 24px;
+        width: 120px;
     }
 }
 
