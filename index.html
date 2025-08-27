@@ -45,6 +45,13 @@
         gtag('js', new Date());
 
         gtag('config', 'G-MQRVKG6YVT');
+
+        gtag('event', 'page_view', {
+          'page_title': 'Lemonoid Landing Page - A/B Test',
+          'page_location': window.location.href,
+          'custom_parameter_1': 'landing_page_variant_a', // A version
+          'ab_test_id': 'lemonoid_landing_v1'
+      });
     </script>
 </head>
 <body>
