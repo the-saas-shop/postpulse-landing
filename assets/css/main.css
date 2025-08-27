@@ -94,7 +94,7 @@ body {
     text-align: center;
     max-width: 500px;
     margin: 0 auto;
-    padding: 16px;
+    padding: 0 16px;
 }
 
 /* Logo */
@@ -161,15 +161,11 @@ body {
 /* Signup Form */
 .signup-form {
     margin-bottom: 1rem;
-    width: 100%;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0 20px;
 }
 
 .form-row {
     display: flex;
-    width: 100%;
     height: 60px;
     gap: 4px;
     background: var(--white);
@@ -380,9 +376,6 @@ body {
         font-size: var(--font-2xl-md);
     }
     
-    .signup-form {
-        max-width: 500px;
-    }
     
     .email-input {
         font-size: var(--font-lg);
