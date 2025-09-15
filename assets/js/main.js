@@ -173,12 +173,5 @@ document.addEventListener('DOMContentLoaded', function() {
             existingError.remove();
         }
     });
-    
-    // Optional: Auto-focus email input on desktop only
-    if (window.innerWidth > 768) {
-        setTimeout(() => {
-            emailInput.focus();
-        }, 500);
-        }
     }
 });
