@@ -2,11 +2,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize Lucide icons
     lucide.createIcons();
     
-    // Form handling
-    const form = document.querySelector('.signup-form');
-    const emailInput = form.querySelector('.email-input');
-    const submitBtn = form.querySelector('.btn-submit');
-    const originalBtnText = submitBtn.innerHTML;
+    // Handle both forms
+    const forms = document.querySelectorAll('.signup-form, .cta-form');
+    
+    forms.forEach(function(form) {
+        const emailInput = form.querySelector('.email-input, .cta-email-input');
+        const submitBtn = form.querySelector('.btn-submit, .cta-btn-submit');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        setupForm(form, emailInput, submitBtn, originalBtnText);
+    });
+    
+    function setupForm(form, emailInput, submitBtn, originalBtnText) {
     
     // Email validation
     function validateEmail(email) {
@@ -43,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="success-content">
                     <i data-lucide="check-circle"></i>
                     <h3>You're on the list!</h3>
-                    <p>Thanks for signing up! We'll notify you as soon as Lemonoid launches.</p>
+                    <p>Thanks for signing up! We'll notify you as soon as PostPulse launches with exclusive early access.</p>
                     <div class="success-actions">
                         <button class="btn-close" onclick="this.closest('.success-message').remove();">
                             Got it!
@@ -58,13 +65,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize icons in the new content
         lucide.createIcons();
         
-        // Auto-remove after 6 seconds
+        // Auto-remove after 8 seconds
         setTimeout(() => {
             const successMsg = document.querySelector('.success-message');
             if (successMsg) {
                 successMsg.remove();
             }
-        }, 6000);
+        }, 8000);
     }
     
     // Set loading state
@@ -84,18 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
     emailInput.addEventListener('input', function() {
         const email = this.value.trim();
         
-        // Remove error styling
-        this.classList.remove('error');
-        
         // Remove any existing error messages
         const existingError = form.querySelector('.form-error');
         if (existingError) {
             existingError.remove();
-        }
-        
-        // Validate if there's content
-        if (email && !validateEmail(email)) {
-            this.classList.add('error');
         }
     });
     
@@ -114,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (!validateEmail(email)) {
             showError('Please enter a valid email address');
-            emailInput.classList.add('error');
             emailInput.focus();
             return;
         }
@@ -140,8 +138,15 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(function() {
             // Success
             form.reset();
-            emailInput.classList.remove('error');
             showSuccess();
+            
+            // Track successful signup
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'sign_up', {
+                    'event_category': 'engagement',
+                    'event_label': 'early_access'
+                });
+            }
         })
         .catch(function(error) {
             console.error('Error:', error);
@@ -162,8 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Focus management
     emailInput.addEventListener('focus', function() {
-        this.classList.remove('error');
-        
         // Remove any existing error messages
         const existingError = form.querySelector('.form-error');
         if (existingError) {
@@ -171,8 +174,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Auto-focus email input on page load (optional UX enhancement)
-    setTimeout(() => {
-        emailInput.focus();
-    }, 500);
+    // Optional: Auto-focus email input on desktop only
+    if (window.innerWidth > 768) {
+        setTimeout(() => {
+            emailInput.focus();
+        }, 500);
+        }
+    }
 });

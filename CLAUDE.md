@@ -19,10 +19,10 @@ Design and develop for mobile devices first, then enhance for larger screens usi
 ## 🎨 Design System
 
 ### Color Schema
-- **Primary**: #E66765 (backgrounds, dark text)
-- **Accent 1**: #6F5E76 (CTAs, highlights, important elements)
-- **Background**: #F8F6EF (For main background)
-- **Dark Text Color**: #211103 (Dark text color)
+- **Primary**: #daeb28 (backgrounds, dark text)
+- **Accent 1**: #ef476f (CTAs, highlights, important elements)
+- **Background**: #fffef9 (For main background)
+- **Dark Text Color**: #000 (Dark text color)
 
 ### Fonts 
 - **Header**: Poppins (Bold)
