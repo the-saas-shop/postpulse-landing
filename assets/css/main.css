@@ -23,22 +23,23 @@ input, button, textarea, select {
 
 /* CSS Custom Properties */
 :root {
-    /* Colors */
+    /* Neo Brutalism Colors */
     --primary-black: #000000;
-    --accent-pink: #FF4B6E;
-    --light-gray: #F5F5F5;
-    --medium-gray: #6B7280;
-    --dark-gray: #374151;
+    --accent-orange: #FF6B4A;
+    --accent-purple: #6366F1;
+    --light-bg: #F5F5F5;
+    --medium-gray: #64748B;
+    --dark-gray: #1E293B;
     --white: #FFFFFF;
-    --background: #fffef9;
-    --green-accent: #DAEB28;
-    
+    --background: #FAFAF9;
+    --border-black: #000000;
+
     /* Typography */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    
+
     /* Layout */
-    --container-max: 900px;
-    
+    --container-max: 1100px;
+
     /* Font sizes */
     --font-xs: 0.875rem;   /* 14px */
     --font-sm: 1rem;       /* 16px */
@@ -48,6 +49,11 @@ input, button, textarea, select {
     --font-2xl: 2rem;      /* 32px */
     --font-3xl: 3rem;      /* 48px */
     --font-4xl: 3.75rem;   /* 60px */
+    --font-5xl: 4.5rem;    /* 72px */
+
+    /* Neo Brutalism Borders */
+    --border-thick: 4px;
+    --border-medium: 3px;
 }
 
 /* Base Styles */
@@ -83,16 +89,14 @@ body {
 
 /* Logo */
 .logo-container {
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
 .logo-svg {
     width: 160px;
-    height: 100px;
-    display: block;
+    height: auto;
+    display: inline-block;
 }
 
 /* Hero Content */
@@ -100,72 +104,80 @@ body {
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
-    padding-top: 4rem;
 }
 
-/* Badge */
+/* Badge - Neo Brutalism Style */
 .badge {
     display: inline-block;
-    background-color: var(--light-gray);
-    color: var(--dark-gray);
-    padding: 0.5rem 1.5rem;
+    background-color: var(--white);
+    color: var(--primary-black);
+    padding: 0.75rem 2rem;
     border-radius: 100px;
-    font-size: var(--font-xs);
-    font-weight: 500;
-    margin-bottom: 2rem;
-    letter-spacing: 0.01em;
+    border: var(--border-medium) solid var(--border-black);
+    font-size: var(--font-sm);
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0;
+    box-shadow: 4px 4px 0 var(--border-black);
 }
 
-/* Headline */
+/* Headline - Neo Brutalism Bold */
 .headline {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
     color: var(--primary-black);
 }
 
 .text-accent {
-    color: var(--accent-pink);
+    background-color: var(--accent-orange);
+    color: var(--primary-black);
+    padding: 0.15em 0.35em;
+    border-radius: 8px;
+    display: inline-block;
+    border: var(--border-medium) solid var(--border-black);
+    box-shadow: 4px 4px 0 var(--border-black);
+    transform: rotate(-2deg);
 }
 
 /* Subheading */
 .subheading {
-    font-size: var(--font-lg);
+    font-size: var(--font-base);
     font-weight: 400;
     line-height: 1.6;
     color: var(--medium-gray);
     margin-bottom: 3rem;
-    max-width: 750px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Signup Form */
+/* Signup Form - Neo Brutalism */
 .signup-form {
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .form-wrapper {
     display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    background-color: var(--light-gray);
-    padding: 0.5rem;
-    border-radius: 100px;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .email-input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    padding: 1rem 1.5rem;
-    font-size: var(--font-sm);
+    width: 100%;
+    border: var(--border-thick) solid var(--border-black);
+    background: var(--white);
+    padding: 1.25rem 1.5rem;
+    font-size: var(--font-base);
     color: var(--primary-black);
     outline: none;
-    min-width: 0;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow: 4px 4px 0 var(--border-black);
+    transition: all 0.2s ease;
 }
 
 .email-input::placeholder {
@@ -175,37 +187,90 @@ body {
 
 .email-input:focus {
     outline: none;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-black);
 }
 
+/* Button Group */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Primary Button - Filled Purple */
 .btn-submit {
-    background: var(--green-accent);
-    color: var(--primary-black);
-    border: none;
-    padding: 1rem 2rem;
+    background: var(--accent-purple);
+    color: var(--white);
+    border: var(--border-thick) solid var(--border-black);
+    padding: 1.25rem 2.5rem;
     font-weight: 700;
-    font-size: var(--font-sm);
+    font-size: var(--font-base);
     cursor: pointer;
     transition: all 0.2s ease;
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     white-space: nowrap;
-    border-radius: 100px;
+    border-radius: 12px;
     flex-shrink: 0;
+    box-shadow: 4px 4px 0 var(--border-black);
 }
 
 .btn-submit:hover {
-    transform: scale(1.05);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-black);
+}
+
+.btn-submit:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--border-black);
 }
 
 .btn-submit:focus {
-    outline: 2px solid var(--primary-black);
+    outline: 2px solid var(--accent-purple);
     outline-offset: 2px;
 }
 
 .btn-submit i {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Secondary Button - Outlined */
+.btn-outline {
+    background: transparent;
+    color: var(--primary-black);
+    border: var(--border-thick) solid var(--border-black);
+    padding: 1.25rem 2.5rem;
+    font-weight: 700;
+    font-size: var(--font-base);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 var(--border-black);
+}
+
+.btn-outline:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-black);
+    background: var(--white);
+}
+
+.btn-outline:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--border-black);
+}
+
+.btn-outline i {
+    width: 20px;
+    height: 20px;
 }
 
 /* Success Message */
@@ -298,58 +363,55 @@ body {
         --font-3xl: 2.25rem;
         --font-4xl: 2.75rem;
     }
-    
+
     .logo-container {
-        top: 1.5rem;
+        margin-bottom: 2rem;
     }
-    
+
     .logo-svg {
         width: 120px;
-        height: 70px;
+        height: auto;
     }
-    
-    .hero-content {
-        padding-top: 5rem;
-    }
-    
+
     .headline {
-        font-size: 2.25rem;
+        font-size: 2rem;
         margin-bottom: 1.25rem;
+        line-height: 1.2;
     }
-    
+
     .subheading {
-        font-size: 1.125rem;
+        font-size: 1rem;
         margin-bottom: 2rem;
         padding: 0 1rem;
     }
-    
+
     .badge {
-        font-size: 0.8125rem;
-        padding: 0.4375rem 1.25rem;
+        font-size: 0.875rem;
+        padding: 0.625rem 1.5rem;
         margin-bottom: 1.5rem;
     }
-    
-    .form-wrapper {
-        flex-direction: column;
-        background: transparent;
-        padding: 0;
-        gap: 1rem;
+
+    .text-accent {
+        padding: 0.1em 0.3em;
+        box-shadow: 3px 3px 0 var(--border-black);
     }
-    
+
     .email-input {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        text-align: center;
-        background: var(--light-gray);
-        border-radius: 100px;
-        border: 1px solid #E5E7EB;
+        padding: 1rem 1.25rem;
+        font-size: var(--font-sm);
     }
-    
-    .btn-submit {
+
+    .button-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .btn-submit,
+    .btn-outline {
         width: 100%;
         justify-content: center;
         padding: 1rem 1.5rem;
-        border-radius: 100px;
+        font-size: var(--font-sm);
     }
 }
 
@@ -363,7 +425,7 @@ body {
     outline: none !important;
 }
 
-/* Features Section */
+/* Features Section - Neo Brutalism */
 .features {
     padding: 5rem 0;
     background: var(--background);
@@ -373,23 +435,32 @@ body {
 .features-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem 4rem;
+    gap: 2rem;
     margin-bottom: 5rem;
 }
 
 .feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    background: var(--white);
+    border: var(--border-thick) solid var(--border-black);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 6px 6px 0 var(--border-black);
+    transition: all 0.2s ease;
+}
+
+.feature-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--border-black);
 }
 
 .feature-dot {
-    width: 12px;
-    height: 12px;
-    background: var(--green-accent);
+    width: 16px;
+    height: 16px;
+    background: var(--accent-purple);
     border-radius: 50%;
     flex-shrink: 0;
-    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--border-black);
 }
 
 .feature-content {
@@ -397,8 +468,8 @@ body {
 }
 
 .feature-title {
-    font-size: var(--font-xl);
-    font-weight: 700;
+    font-size: var(--font-lg);
+    font-weight: 800;
     color: var(--primary-black);
     line-height: 1.3;
     margin-bottom: 0.75rem;
@@ -406,20 +477,20 @@ body {
 }
 
 .feature-description {
-    font-size: var(--font-base);
+    font-size: var(--font-sm);
     color: var(--medium-gray);
     line-height: 1.6;
     margin: 0;
 }
 
-/* Platform Section */
+/* Platform Section - Neo Brutalism */
 .platform-section {
     text-align: center;
 }
 
 .platform-heading {
     font-size: var(--font-2xl);
-    font-weight: 700;
+    font-weight: 800;
     color: var(--primary-black);
     margin-bottom: 3rem;
     margin-top: 0;
@@ -428,9 +499,9 @@ body {
 .platforms-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 2.5rem;
-    max-width: 800px;
+    max-width: 850px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -443,18 +514,26 @@ body {
 }
 
 .platform-icon {
-    width: 60px;
-    height: 60px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 0.25rem;
+    border: var(--border-medium) solid var(--border-black);
+    box-shadow: 4px 4px 0 var(--border-black);
+    transition: all 0.2s ease;
+}
+
+.platform-icon:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-black);
 }
 
 .platform-icon i {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
 }
 
 .instagram-icon {
@@ -565,7 +644,84 @@ body {
     }
 }
 
-/* Final CTA Section */
+/* FAQ Section - Neo Brutalism */
+.faq {
+    padding: 5rem 0;
+    background: var(--background);
+}
+
+.faq-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+}
+
+.faq-title {
+    font-size: var(--font-2xl);
+    font-weight: 900;
+    color: var(--primary-black);
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.faq-description {
+    font-size: var(--font-base);
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.faq-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.faq-item {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    border: var(--border-thick) solid var(--border-black);
+    box-shadow: 6px 6px 0 var(--border-black);
+    transition: all 0.2s ease;
+}
+
+.faq-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--border-black);
+}
+
+.faq-question {
+    font-size: var(--font-lg);
+    font-weight: 800;
+    color: var(--primary-black);
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+}
+
+.faq-answer {
+    font-size: var(--font-sm);
+    color: var(--medium-gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .faq {
+        padding: 4rem 0;
+    }
+    
+    .faq-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem;
+    }
+    
+    .faq-item {
+        padding: 2rem;
+    }
+}
+
+/* Final CTA Section - Neo Brutalism */
 .final-cta {
     padding: 5rem 0;
     background: var(--background);
@@ -573,13 +729,13 @@ body {
 }
 
 .cta-content {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .cta-headline {
-    font-size: var(--font-2xl);
-    font-weight: 800;
+    font-size: var(--font-3xl);
+    font-weight: 900;
     color: var(--primary-black);
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -594,7 +750,7 @@ body {
     margin-top: 0;
 }
 
-/* CTA Form */
+/* CTA Form - Neo Brutalism */
 .cta-form {
     max-width: 500px;
     margin: 0 auto;
@@ -602,23 +758,24 @@ body {
 
 .cta-form-wrapper {
     display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    background-color: var(--white);
-    padding: 0.5rem;
-    border-radius: 100px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    gap: 1rem;
+    align-items: stretch;
+    flex-direction: column;
 }
 
 .cta-email-input {
     flex: 1;
-    border: none;
-    background: transparent;
-    padding: 1rem 1.5rem;
-    font-size: var(--font-sm);
+    border: var(--border-thick) solid var(--border-black);
+    background: var(--white);
+    padding: 1.25rem 1.5rem;
+    font-size: var(--font-base);
     color: var(--primary-black);
     outline: none;
     min-width: 0;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow: 4px 4px 0 var(--border-black);
+    transition: all 0.2s ease;
 }
 
 .cta-email-input::placeholder {
@@ -628,37 +785,47 @@ body {
 
 .cta-email-input:focus {
     outline: none;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-black);
 }
 
 .cta-btn-submit {
-    background: var(--green-accent);
-    color: var(--primary-black);
-    border: none;
-    padding: 1rem 2rem;
+    background: var(--accent-purple);
+    color: var(--white);
+    border: var(--border-thick) solid var(--border-black);
+    padding: 1.25rem 2.5rem;
     font-weight: 700;
-    font-size: var(--font-sm);
+    font-size: var(--font-base);
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     white-space: nowrap;
-    border-radius: 100px;
+    border-radius: 12px;
     flex-shrink: 0;
+    box-shadow: 4px 4px 0 var(--border-black);
 }
 
 .cta-btn-submit:hover {
-    transform: scale(1.05);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-black);
+}
+
+.cta-btn-submit:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--border-black);
 }
 
 .cta-btn-submit:focus {
-    outline: 2px solid var(--primary-black);
+    outline: 2px solid var(--accent-purple);
     outline-offset: 2px;
 }
 
 .cta-btn-submit i {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
 }
 
 /* CTA Mobile Responsive */
@@ -666,41 +833,26 @@ body {
     .final-cta {
         padding: 3rem 0;
     }
-    
+
     .cta-headline {
-        font-size: var(--font-xl);
+        font-size: var(--font-2xl);
         margin-bottom: 1rem;
     }
-    
+
     .cta-subheading {
         font-size: var(--font-sm);
         margin-bottom: 2rem;
         padding: 0 1rem;
     }
-    
-    .cta-form-wrapper {
-        flex-direction: column;
-        background: transparent;
-        padding: 0;
-        gap: 1rem;
-        box-shadow: none;
-    }
-    
+
     .cta-email-input {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        text-align: center;
-        background: var(--white);
-        border-radius: 100px;
-        border: 1px solid #E5E7EB;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        padding: 1rem 1.25rem;
+        font-size: var(--font-sm);
     }
-    
+
     .cta-btn-submit {
-        width: 100%;
-        justify-content: center;
         padding: 1rem 1.5rem;
-        border-radius: 100px;
+        font-size: var(--font-sm);
     }
 }
 

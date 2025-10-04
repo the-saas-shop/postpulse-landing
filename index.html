@@ -12,12 +12,15 @@
     <meta name="keywords" content="competitive intelligence, content creator tools, AI content analysis, viral content tracking, social media analytics, competitor analysis, YouTube analytics, TikTok insights, Instagram tracking, content strategy, audience intelligence, trend detection, creator economy, social media monitoring, content ideas generator">
     <meta name="author" content="PostPulse">
     <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
     <link rel="canonical" href="https://www.postpulse.social/">
     
     <!-- Favicon -->
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -49,33 +52,93 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "PostPulse",
-      "description": "Competitive intelligence platform for content creators. Track competitors, analyze viral content, and get data-driven content insights across YouTube, TikTok, Instagram, and LinkedIn.",
-      "url": "https://www.postpulse.social/",
-      "applicationCategory": "BusinessApplication",
-      "applicationSubCategory": "Social Media Analytics",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "29",
-        "priceCurrency": "USD",
-        "priceSpecification": {
-          "@type": "RecurringCharge",
-          "frequency": "Monthly"
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.postpulse.social/#software",
+          "name": "PostPulse",
+          "description": "Competitive intelligence platform for content creators. Track competitors, analyze viral content, and get data-driven content insights across YouTube, TikTok, Instagram, LinkedIn, X, and Facebook.",
+          "url": "https://www.postpulse.social/",
+          "applicationCategory": "BusinessApplication",
+          "applicationSubCategory": "Social Media Analytics",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "29.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/PreOrder",
+            "url": "https://www.postpulse.social/"
+          },
+          "creator": {
+            "@type": "Organization",
+            "name": "PostPulse"
+          },
+          "featureList": [
+            "Multi-platform competitor tracking",
+            "AI-powered content analysis",
+            "Viral content pattern recognition",
+            "Audience sentiment analysis",
+            "Early trend detection",
+            "Content idea generation"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.postpulse.social/#website",
+          "url": "https://www.postpulse.social/",
+          "name": "PostPulse",
+          "publisher": {
+            "@type": "Organization",
+            "name": "PostPulse"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.postpulse.social/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.postpulse.social/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "@id": "https://www.postpulse.social/#faq-competitor-ideas",
+              "name": "How does PostPulse uncover competitor content ideas?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PostPulse tracks the creators you select across YouTube, TikTok, Instagram, LinkedIn, X, and Facebook, using AI to analyze hooks, posting cadence, and engagement signals so you can replicate proven content angles."
+              }
+            },
+            {
+              "@type": "Question",
+              "@id": "https://www.postpulse.social/#faq-platforms",
+              "name": "Which social platforms does PostPulse monitor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The platform continuously monitors Instagram, X, LinkedIn, TikTok, YouTube, and Facebook to surface cross-channel performance data in one dashboard."
+              }
+            },
+            {
+              "@type": "Question",
+              "@id": "https://www.postpulse.social/#faq-trends",
+              "name": "How early will I see trending topics?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You get AI-generated alerts about breakout topics and formats 2-3 days before they spike, giving you time to publish first and capture the wave."
+              }
+            },
+            {
+              "@type": "Question",
+              "@id": "https://www.postpulse.social/#faq-waitlist",
+              "name": "What do I receive after joining the waitlist?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Waitlist members receive onboarding resources, curated competitor watchlists, and priority access when new AI analysis features roll out."
+              }
+            }
+          ]
         }
-      },
-      "creator": {
-        "@type": "Organization",
-        "name": "PostPulse"
-      },
-      "featureList": [
-        "Multi-platform competitor tracking",
-        "AI-powered content analysis",
-        "Viral content pattern recognition",
-        "Audience sentiment analysis",
-        "Early trend detection",
-        "Content idea generation"
       ]
     }
     </script>
@@ -135,12 +198,12 @@
                     <p class="hidden">
                         <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                     </p>
-                    
+
                     <div class="form-wrapper">
-                        <input 
-                            type="email" 
-                            name="email" 
-                            placeholder="Email" 
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
                             required
                             class="email-input"
                             aria-label="Email address"
@@ -246,6 +309,34 @@
                 </div>
                 
                 <p class="platform-tagline">One dashboard. All your competitors. Complete visibility.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="faq-header">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                <p class="faq-description">Get fast answers about how PostPulse turns competitive intelligence into repeatable content wins.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">How does PostPulse uncover competitor content ideas?</h3>
+                    <p class="faq-answer">PostPulse tracks the creators you select across YouTube, TikTok, Instagram, LinkedIn, X, and Facebook, using AI to analyze hooks, posting cadence, and engagement signals so you can replicate proven content angles.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Which social platforms does PostPulse monitor?</h3>
+                    <p class="faq-answer">The platform continuously monitors Instagram, X, LinkedIn, TikTok, YouTube, and Facebook to surface cross-channel performance data in one dashboard.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">How early will I see trending topics?</h3>
+                    <p class="faq-answer">You get AI-generated alerts about breakout topics and formats 2-3 days before they spike, giving you time to publish first and capture the wave.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">What do I receive after joining the waitlist?</h3>
+                    <p class="faq-answer">Waitlist members receive onboarding resources, curated competitor watchlists, and priority access when new AI analysis features roll out.</p>
+                </div>
             </div>
         </div>
     </section>
