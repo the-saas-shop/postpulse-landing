@@ -273,59 +273,67 @@ body {
     height: 20px;
 }
 
-/* Success Message */
+/* Success Message - Neo Brutalism */
 .success-message {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: var(--white);
-    border: 2px solid var(--primary-black);
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: var(--border-thick) solid var(--border-black);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 8px 8px 0 var(--border-black);
     z-index: 1000;
     text-align: center;
-    max-width: 400px;
+    max-width: 500px;
     width: 90%;
     display: none;
 }
 
 .success-content i {
-    font-size: 48px;
-    color: var(--green-accent);
-    margin-bottom: 1rem;
+    width: 56px;
+    height: 56px;
+    color: var(--accent-purple);
+    margin-bottom: 1.5rem;
+    stroke-width: 2.5;
 }
 
 .success-content h3 {
-    font-size: var(--font-xl);
-    font-weight: 700;
+    font-size: var(--font-2xl);
+    font-weight: 900;
     margin-bottom: 1rem;
     color: var(--primary-black);
 }
 
 .success-content p {
-    font-size: var(--font-sm);
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
+    font-size: var(--font-base);
+    line-height: 1.6;
+    margin-bottom: 2rem;
     color: var(--medium-gray);
 }
 
 .btn-close {
-    background: var(--primary-black);
+    background: var(--accent-purple);
     color: var(--white);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 100px;
-    font-weight: 600;
+    border: var(--border-thick) solid var(--border-black);
+    padding: 1.25rem 2.5rem;
+    border-radius: 12px;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-size: var(--font-sm);
+    font-size: var(--font-base);
+    box-shadow: 4px 4px 0 var(--border-black);
 }
 
 .btn-close:hover {
-    background: #1a1a1a;
-    transform: translateY(-1px);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-black);
+}
+
+.btn-close:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--border-black);
 }
 
 /* Error States */
