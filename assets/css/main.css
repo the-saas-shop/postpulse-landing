@@ -65,6 +65,7 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    padding-top: 80px; /* Account for fixed header */
 }
 
 .container {
@@ -77,26 +78,74 @@ body {
     display: none !important;
 }
 
+/* Header Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--background);
+    border-bottom: var(--border-thick) solid var(--border-black);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo .logo-svg {
+    width: 120px;
+    height: auto;
+}
+
+.btn-login {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-purple);
+    color: var(--white);
+    border: var(--border-thick) solid var(--border-black);
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: var(--font-sm);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 4px 4px 0 var(--border-black);
+}
+
+.btn-login:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-black);
+}
+
+.btn-login:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--border-black);
+}
+
+.btn-login i {
+    width: 18px;
+    height: 18px;
+}
+
 /* Hero Section */
 .hero {
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem 0;
     background-color: var(--background);
-}
-
-/* Logo */
-.logo-container {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.logo-svg {
-    width: 160px;
-    height: auto;
-    display: inline-block;
 }
 
 /* Hero Content */
@@ -152,6 +201,80 @@ body {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 2.5rem;
+    background: var(--accent-purple);
+    color: var(--white);
+    border: var(--border-thick) solid var(--border-black);
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: var(--font-base);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 4px 4px 0 var(--border-black);
+}
+
+.btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-black);
+}
+
+.btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--border-black);
+}
+
+.btn-primary i {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 2.5rem;
+    background: transparent;
+    color: var(--primary-black);
+    border: var(--border-thick) solid var(--border-black);
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: var(--font-base);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 4px 4px 0 var(--border-black);
+}
+
+.btn-secondary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--border-black);
+    background: var(--white);
+}
+
+.btn-secondary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--border-black);
+}
+
+.btn-secondary i {
+    width: 20px;
+    height: 20px;
 }
 
 /* Signup Form - Neo Brutalism */
@@ -372,13 +495,30 @@ body {
         --font-4xl: 2.75rem;
     }
 
-    .logo-container {
-        margin-bottom: 2rem;
+    body {
+        padding-top: 70px; /* Smaller header on mobile */
     }
 
-    .logo-svg {
-        width: 120px;
-        height: auto;
+    .header {
+        padding: 0.75rem 0;
+    }
+
+    .nav-logo .logo-svg {
+        width: 100px;
+    }
+
+    .btn-login {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+
+    .btn-login i {
+        width: 16px;
+        height: 16px;
+    }
+
+    .hero {
+        min-height: calc(100vh - 70px);
     }
 
     .headline {
@@ -402,6 +542,25 @@ body {
     .text-accent {
         padding: 0.1em 0.3em;
         box-shadow: 3px 3px 0 var(--border-black);
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        font-size: var(--font-sm);
+    }
+
+    .btn-primary i,
+    .btn-secondary i {
+        width: 18px;
+        height: 18px;
     }
 
     .email-input {

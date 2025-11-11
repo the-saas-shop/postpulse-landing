@@ -169,14 +169,24 @@
     </script>
 </head>
 <body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <img src="./logo.svg" alt="PostPulse" class="logo-svg">
+                </div>
+                <a href="https://app.postpulse.social/login" class="btn-login">
+                    Login
+                    <i data-lucide="log-in"></i>
+                </a>
+            </nav>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <!-- Logo -->
-            <div class="logo-container">
-                <img src="./logo.svg" alt="PostPulse" class="logo-svg">
-            </div>
-
             <!-- Main Content -->
             <div class="hero-content">
                 <!-- Badge -->
@@ -191,35 +201,23 @@
                 <p class="subheading">
                     Track your top competitors. See their viral posts. Get the exact hooks, formats, and topics driving 50K+ views, before you spend hours creating.
                 </p>
-                
-                <!-- Email Form -->
-                <form class="signup-form" name="early-access" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                    <!-- Honeypot for spam protection -->
-                    <p class="hidden">
-                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                    </p>
 
-                    <div class="form-wrapper">
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email"
-                            required
-                            class="email-input"
-                            aria-label="Email address"
-                        >
-                        <button type="submit" class="btn-submit">
-                            Get Early Access
-                            <i data-lucide="arrow-right"></i>
-                        </button>
-                    </div>
-                </form>
+                <!-- CTA Buttons -->
+                <div class="hero-buttons">
+                    <a href="https://app.postpulse.social/login" class="btn-primary">
+                        Get Started
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="#how-it-works" class="btn-secondary">
+                        How It Works
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section id="how-it-works" class="features">
         <div class="container">
             <!-- Features Grid -->
             <div class="features-grid">
@@ -334,39 +332,6 @@
         </div>
     </section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-headline">Know what will work before you create</h2>
-                <p class="cta-subheading">Get priority access when PostPulse launches. Track your top competitors, see their viral posts, and get AI-powered insights that actually help you grow. First 30 days free for early members.</p>
-
-                <!-- Email Form -->
-                <form class="cta-form" name="early-access-bottom" method="POST" data-netlify="true" netlify-honeypot="bot-field-bottom">
-                    <!-- Honeypot for spam protection -->
-                    <p class="hidden">
-                        <label>Don't fill this out if you're human: <input name="bot-field-bottom" /></label>
-                    </p>
-
-                    <div class="cta-form-wrapper">
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email"
-                            required
-                            class="cta-email-input"
-                            aria-label="Email address"
-                        >
-                        <button type="submit" class="cta-btn-submit">
-                            Get 30 Days Free
-                            <i data-lucide="arrow-right"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -380,17 +345,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Hidden forms for Netlify detection -->
-    <form name="early-access" netlify netlify-honeypot="bot-field" hidden>
-        <input type="email" name="email" />
-        <input name="bot-field" />
-    </form>
-
-    <form name="early-access-bottom" netlify netlify-honeypot="bot-field-bottom" hidden>
-        <input type="email" name="email" />
-        <input name="bot-field-bottom" />
-    </form>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/lucide@0.259.0/dist/umd/lucide.js"></script>
