@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>404 - Page Not Found | PostPulse</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to PostPulse to grow your X audience in 5 minutes a day.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="404 - Page Not Found | PostPulse">
+    <meta property="og:description" content="The page you're looking for doesn't exist.">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="404 - Page Not Found | PostPulse">
+    <meta name="twitter:description" content="The page you're looking for doesn't exist.">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#6366F1">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS7C9Q7D0Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GS7C9Q7D0Z');
+        gtag('event', 'page_view', {
+          'page_title': '404 Page Not Found',
+          'page_location': window.location.href
+        });
+    </script>
+
+    <style>
+        /* 404 Page Specific Styles */
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            background: var(--background);
+        }
+
+        .error-container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .error-code {
+            font-family: var(--font-display);
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 800;
+            color: var(--primary-black);
+            line-height: 1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .error-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .error-message {
+            font-family: var(--font-body);
+            font-size: var(--font-base);
+            color: var(--medium-gray);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+
+        .error-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.25rem 2.5rem;
+            background: var(--accent-purple);
+            color: var(--white);
+            border: var(--border-thick) solid var(--border-black);
+            border-radius: 12px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--font-base);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0 var(--border-black);
+        }
+
+        .btn-home:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--border-black);
+        }
+
+        .btn-home:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--border-black);
+        }
+
+        .error-decoration {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: var(--primary-black);
+            padding: 0.15em 0.4em;
+            border-radius: 12px;
+            border: 3px solid var(--border-black);
+            box-shadow: 5px 5px 0 var(--border-black);
+            transform: rotate(-2deg);
+        }
+
+        .helpful-links {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--light-bg);
+        }
+
+        .helpful-links p {
+            font-family: var(--font-body);
+            font-size: var(--font-sm);
+            color: var(--medium-gray);
+            margin-bottom: 1rem;
+        }
+
+        .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .link-list a {
+            font-family: var(--font-body);
+            font-size: var(--font-sm);
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .link-list a:hover {
+            text-decoration: underline;
+            color: var(--primary-black);
+        }
+
+        @media (max-width: 768px) {
+            .error-page {
+                padding: 1.5rem 1rem;
+            }
+
+            .error-code {
+                font-size: 5rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .error-message {
+                font-size: var(--font-sm);
+                margin-bottom: 2rem;
+            }
+
+            .btn-home {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page <span class="error-decoration">Not Found</span></h1>
+            <p class="error-message">
+                Looks like this page took a wrong turn. Don't worry though — we'll get you back on track.
+            </p>
+
+            <div class="error-actions">
+                <a href="/" class="btn-home">
+                    <i data-lucide="home"></i>
+                    Back to Home
+                </a>
+            </div>
+
+            <div class="helpful-links">
+                <p>Looking for something specific?</p>
+                <div class="link-list">
+                    <a href="/">Home</a>
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <a href="/terms-of-service.html">Terms of Service</a>
+                    <a href="https://app.postpulse.social/login">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@0.259.0/dist/umd/lucide.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Track 404 error in Google Analytics
+            gtag('event', 'exception', {
+                'description': 'Page Not Found - ' + window.location.pathname,
+                'fatal': false
+            });
+        });
+    </script>
+</body>
+</html>
