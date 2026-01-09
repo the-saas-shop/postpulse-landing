@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>How the X Algorithm Works in 2026 | PostPulse Blog</title>
+    <meta name="description" content="A plain English breakdown of how the X (Twitter) algorithm decides what shows up in your feed in 2026. Learn what engagement actually matters and how to grow your reach.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="PostPulse">
+    <link rel="canonical" href="https://postpulse.social/blog/x-algorithm-2026.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://postpulse.social/blog/x-algorithm-2026.html">
+    <meta property="og:title" content="How the X Algorithm Works in 2026">
+    <meta property="og:description" content="A plain English breakdown of how the X algorithm decides what shows up in your feed. Learn what engagement actually matters and how to grow your reach.">
+    <meta property="og:image" content="https://postpulse.social/open-graph.png">
+    <meta property="og:site_name" content="PostPulse">
+    <meta property="article:published_time" content="2026-01-09">
+    <meta property="article:section" content="Algorithm">
+    <meta property="article:tag" content="X Algorithm, Twitter Algorithm, Social Media Growth">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How the X Algorithm Works in 2026">
+    <meta name="twitter:description" content="A plain English breakdown of how the X algorithm decides what shows up in your feed. Learn what engagement actually matters.">
+    <meta name="twitter:image" content="https://postpulse.social/open-graph.png">
+    <meta name="twitter:creator" content="@postpulse">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How the X Algorithm Works in 2026",
+        "description": "A plain English breakdown of how the X (Twitter) algorithm decides what shows up in your feed in 2026. Learn what engagement actually matters and how to grow your reach.",
+        "image": "https://postpulse.social/open-graph.png",
+        "author": {
+            "@type": "Organization",
+            "name": "PostPulse"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PostPulse",
+            "url": "https://postpulse.social"
+        },
+        "datePublished": "2026-01-09",
+        "dateModified": "2026-01-09",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://postpulse.social/blog/x-algorithm-2026.html"
+        }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Fonts - Editorial Style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        /* =============================================
+           EDITORIAL BLOG POST STYLES
+           ============================================= */
+
+        :root {
+            --blog-serif: 'Fraunces', Georgia, serif;
+            --blog-sans: 'DM Sans', -apple-system, sans-serif;
+            --blog-accent: #6366F1;
+            --blog-accent-light: #818CF8;
+            --blog-accent-glow: rgba(99, 102, 241, 0.15);
+            --blog-warm: #FF6B4A;
+            --blog-warm-light: #FFB5A0;
+            --blog-text: #1a1a2e;
+            --blog-text-muted: #64748B;
+            --blog-bg: #FAFAF9;
+            --blog-card: #FFFFFF;
+            --blog-border: #000000;
+            --blog-success: #10B981;
+            --blog-warning: #F59E0B;
+        }
+
+        /* Reading Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blog-accent), var(--blog-warm));
+            z-index: 9999;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Blog Post Header - Editorial Style */
+        .blog-post-header {
+            padding: 3rem 0 2rem;
+            background: var(--blog-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-post-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--blog-accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--blog-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--blog-text);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background: var(--blog-card);
+            border: 2px solid var(--blog-border);
+            border-radius: 100px;
+            box-shadow: 3px 3px 0 var(--blog-border);
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--blog-border);
+            color: var(--blog-accent);
+        }
+
+        .back-link i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .post-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--blog-accent);
+            color: white;
+            font-family: var(--blog-sans);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--blog-border);
+            box-shadow: 3px 3px 0 var(--blog-border);
+        }
+
+        .post-category svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .post-title {
+            font-family: var(--blog-serif);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--blog-text);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            letter-spacing: -0.02em;
+        }
+
+        .post-title .highlight {
+            background: linear-gradient(180deg, transparent 60%, var(--blog-warm-light) 60%);
+            padding: 0 0.1em;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: var(--blog-sans);
+            font-size: 0.95rem;
+            color: var(--blog-text-muted);
+            flex-wrap: wrap;
+            padding-top: 1.5rem;
+            border-top: 2px dashed rgba(0,0,0,0.1);
+        }
+
+        .post-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .post-meta-item i {
+            width: 18px;
+            height: 18px;
+            opacity: 0.7;
+        }
+
+        /* Main Layout with TOC */
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            .blog-layout {
+                grid-template-columns: 220px 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* Table of Contents Sidebar */
+        .toc-sidebar {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .toc-sidebar {
+                display: block;
+                position: sticky;
+                top: 100px;
+                height: fit-content;
+                max-height: calc(100vh - 120px);
+                overflow-y: auto;
+            }
+        }
+
+        .toc-card {
+            background: var(--blog-card);
+            border: 3px solid var(--blog-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 5px 5px 0 var(--blog-border);
+        }
+
+        .toc-title {
+            font-family: var(--blog-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--blog-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--blog-bg);
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-link {
+            display: block;
+            font-family: var(--blog-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--blog-text-muted);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .toc-link:hover {
+            background: var(--blog-bg);
+            color: var(--blog-accent);
+        }
+
+        .toc-link.active {
+            background: var(--blog-accent-glow);
+            color: var(--blog-accent);
+            border-left-color: var(--blog-accent);
+            font-weight: 600;
+        }
+
+        /* Blog Content - Editorial Typography */
+        .blog-content {
+            max-width: 720px;
+        }
+
+        .blog-content p {
+            font-family: var(--blog-sans);
+            font-size: 1.125rem;
+            color: var(--blog-text);
+            line-height: 1.85;
+            margin-bottom: 1.75rem;
+        }
+
+        .blog-content .lead {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--blog-text);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .blog-content h2 {
+            font-family: var(--blog-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--blog-text);
+            margin-top: 4rem;
+            margin-bottom: 1.25rem;
+            padding-top: 2rem;
+            border-top: 3px solid var(--blog-border);
+            scroll-margin-top: 100px;
+        }
+
+        .blog-content h2:first-of-type {
+            margin-top: 2rem;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .blog-content h3 {
+            font-family: var(--blog-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--blog-text);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .blog-content h3 .h3-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--blog-accent);
+            color: white;
+            border-radius: 50%;
+            font-family: var(--blog-sans);
+            font-size: 0.9rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            border: 2px solid var(--blog-border);
+            box-shadow: 2px 2px 0 var(--blog-border);
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            margin-left: 0;
+            margin-bottom: 2rem;
+            padding-left: 0;
+        }
+
+        .blog-content ul {
+            list-style: none;
+        }
+
+        .blog-content ul li {
+            font-family: var(--blog-sans);
+            font-size: 1.1rem;
+            color: var(--blog-text);
+            line-height: 1.75;
+            margin-bottom: 0.75rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .blog-content ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.7em;
+            width: 8px;
+            height: 8px;
+            background: var(--blog-accent);
+            border-radius: 50%;
+            border: 2px solid var(--blog-border);
+        }
+
+        .blog-content ol {
+            counter-reset: item;
+            list-style: none;
+        }
+
+        .blog-content ol li {
+            font-family: var(--blog-sans);
+            font-size: 1.1rem;
+            color: var(--blog-text);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+            padding-left: 3rem;
+            position: relative;
+            counter-increment: item;
+        }
+
+        .blog-content ol li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--blog-warm);
+            color: var(--blog-text);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--blog-border);
+            box-shadow: 2px 2px 0 var(--blog-border);
+        }
+
+        .blog-content strong {
+            color: var(--blog-text);
+            font-weight: 700;
+        }
+
+        .blog-content a {
+            color: var(--blog-accent);
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .blog-content a:hover {
+            color: var(--blog-text);
+            background: var(--blog-accent-glow);
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            margin: 3rem -1rem;
+            padding: 2rem 2rem 2rem 2.5rem;
+            background: linear-gradient(135deg, var(--blog-accent-glow) 0%, transparent 100%);
+            border-left: 5px solid var(--blog-accent);
+            border-radius: 0 16px 16px 0;
+            position: relative;
+        }
+
+        .pull-quote::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-family: var(--blog-serif);
+            font-size: 5rem;
+            color: var(--blog-accent);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .pull-quote p {
+            font-family: var(--blog-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--blog-text);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Highlight Box - Enhanced */
+        .highlight-box {
+            background: var(--blog-card);
+            border: 3px solid var(--blog-border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            margin: 2.5rem 0;
+            box-shadow: 6px 6px 0 var(--blog-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blog-accent), var(--blog-warm));
+        }
+
+        .highlight-box .highlight-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--blog-warm);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 2px solid var(--blog-border);
+            box-shadow: 3px 3px 0 var(--blog-border);
+        }
+
+        .highlight-box .highlight-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--blog-text);
+        }
+
+        .highlight-box .highlight-label {
+            font-family: var(--blog-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--blog-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Stat Box - Animated */
+        .stat-box {
+            background: var(--blog-card);
+            border: 4px solid var(--blog-border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            margin: 3rem 0;
+            box-shadow: 8px 8px 0 var(--blog-border);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--blog-accent-glow) 0%, transparent 50%, rgba(255, 107, 74, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        .stat-box .stat-number {
+            font-family: var(--blog-serif);
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--blog-accent) 0%, var(--blog-warm) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .stat-box .stat-label {
+            font-family: var(--blog-sans);
+            font-size: 1.1rem;
+            color: var(--blog-text-muted);
+            font-weight: 500;
+            max-width: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Engagement Table - Visual */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 2.5rem 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .engagement-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-family: var(--blog-sans);
+            background: var(--blog-card);
+            border: 3px solid var(--blog-border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 6px 6px 0 var(--blog-border);
+        }
+
+        .engagement-table thead {
+            background: var(--blog-text);
+        }
+
+        .engagement-table th {
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 1.25rem 1rem;
+            text-align: left;
+        }
+
+        .engagement-table tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        .engagement-table tbody tr:hover {
+            background: var(--blog-accent-glow);
+        }
+
+        .engagement-table td {
+            padding: 1.25rem 1rem;
+            border-bottom: 2px solid var(--blog-bg);
+            font-size: 0.95rem;
+            color: var(--blog-text);
+        }
+
+        .engagement-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .engagement-table .action-cell {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .engagement-table .action-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .engagement-table .action-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .engagement-table .weight-cell {
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .engagement-table .weight-high { color: #10B981; }
+        .engagement-table .weight-medium { color: #F59E0B; }
+        .engagement-table .weight-low { color: #64748B; }
+
+        .engagement-table .weight-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .engagement-table .bar-track {
+            flex: 1;
+            height: 8px;
+            background: var(--blog-bg);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .engagement-table .bar-fill {
+            height: 100%;
+            border-radius: 100px;
+            transition: width 0.5s ease-out;
+        }
+
+        .engagement-table .bar-fill.high { background: linear-gradient(90deg, #10B981, #34D399); }
+        .engagement-table .bar-fill.medium { background: linear-gradient(90deg, #F59E0B, #FBBF24); }
+        .engagement-table .bar-fill.low { background: linear-gradient(90deg, #94A3B8, #CBD5E1); }
+
+        /* CTA Section - Enhanced */
+        .blog-cta {
+            background: var(--blog-card);
+            border: 4px solid var(--blog-border);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            margin: 4rem 0;
+            box-shadow: 8px 8px 0 var(--blog-border);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 0% 0%, var(--blog-accent-glow) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(255, 107, 74, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .blog-cta .cta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--blog-warm);
+            color: var(--blog-text);
+            font-family: var(--blog-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--blog-border);
+            box-shadow: 3px 3px 0 var(--blog-border);
+            position: relative;
+        }
+
+        .blog-cta h3 {
+            font-family: var(--blog-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--blog-text);
+            margin-bottom: 1rem;
+            margin-top: 0;
+            position: relative;
+        }
+
+        .blog-cta p {
+            font-family: var(--blog-sans);
+            font-size: 1.1rem;
+            color: var(--blog-text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .blog-cta .btn-primary {
+            font-size: 1.1rem;
+            padding: 1.25rem 2.5rem;
+            position: relative;
+            color: white;
+            text-decoration: none;
+        }
+
+        .blog-cta .btn-primary i {
+            color: white;
+        }
+
+        /* Sources Section */
+        .sources-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 3px dashed rgba(0,0,0,0.15);
+        }
+
+        .sources-section h2 {
+            font-family: var(--blog-sans);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--blog-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .sources-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .sources-section ul li {
+            padding: 0;
+        }
+
+        .sources-section ul li::before {
+            display: none;
+        }
+
+        .sources-section a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--blog-text-muted);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            background: var(--blog-bg);
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .sources-section a::before {
+            content: '↗';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--blog-card);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+
+        .sources-section a:hover {
+            background: var(--blog-card);
+            border-color: var(--blog-border);
+            color: var(--blog-accent);
+            transform: translateX(4px);
+        }
+
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =============================================
+           MOBILE RESPONSIVE - Comprehensive Fixes
+           ============================================= */
+
+        /* Prevent horizontal overflow globally */
+        .blog-content,
+        .blog-layout,
+        .blog-post-header .container {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            /* Header & Navigation Fixes */
+            .blog-post-header {
+                padding: 1.5rem 0 1.25rem;
+            }
+
+            .header-content {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                align-items: flex-start;
+            }
+
+            .back-link {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.75rem;
+                margin-bottom: 1rem;
+                box-shadow: 2px 2px 0 var(--blog-border);
+            }
+
+            .post-category {
+                font-size: 0.65rem;
+                padding: 0.4rem 0.75rem;
+                margin-bottom: 1rem;
+                box-shadow: 2px 2px 0 var(--blog-border);
+            }
+
+            /* Title - Proper responsive sizing */
+            .post-title {
+                font-size: clamp(1.5rem, 7vw, 2.25rem);
+                line-height: 1.15;
+                margin-bottom: 1rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+
+            .post-title .highlight {
+                display: inline;
+            }
+
+            /* Meta info */
+            .post-meta {
+                gap: 0.75rem;
+                font-size: 0.85rem;
+                padding-top: 1rem;
+            }
+
+            .post-meta-item {
+                gap: 0.35rem;
+            }
+
+            .post-meta-item i {
+                width: 16px;
+                height: 16px;
+            }
+
+            /* Blog Layout */
+            .blog-layout {
+                padding: 1rem 1rem 2.5rem;
+                gap: 1.5rem;
+            }
+
+            /* Blog Content Typography */
+            .blog-content {
+                max-width: 100%;
+            }
+
+            .blog-content p {
+                font-size: 0.95rem;
+                line-height: 1.75;
+                margin-bottom: 1.25rem;
+            }
+
+            .blog-content .lead {
+                font-size: 1.05rem;
+                line-height: 1.65;
+                margin-bottom: 1.5rem;
+            }
+
+            .blog-content h2 {
+                font-size: 1.35rem;
+                margin-top: 2.5rem;
+                padding-top: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .blog-content h3 {
+                font-size: 1.1rem;
+                margin-top: 2rem;
+                flex-wrap: wrap;
+            }
+
+            .blog-content h3 .h3-number {
+                width: 28px;
+                height: 28px;
+                font-size: 0.75rem;
+            }
+
+            /* Lists */
+            .blog-content ul li,
+            .blog-content ol li {
+                font-size: 0.95rem;
+                line-height: 1.7;
+                padding-left: 1.5rem;
+            }
+
+            .blog-content ol li {
+                padding-left: 2.25rem;
+            }
+
+            .blog-content ol li::before {
+                width: 24px;
+                height: 24px;
+                font-size: 0.75rem;
+            }
+
+            /* Pull Quote - No negative margins on mobile */
+            .pull-quote {
+                margin: 1.5rem 0;
+                padding: 1.25rem 1rem 1.25rem 1.25rem;
+                border-radius: 0 12px 12px 0;
+            }
+
+            .pull-quote::before {
+                font-size: 3.5rem;
+                top: -5px;
+                left: 8px;
+            }
+
+            .pull-quote p {
+                font-size: 1.05rem;
+                line-height: 1.45;
+            }
+
+            /* Highlight Box */
+            .highlight-box {
+                padding: 1.25rem;
+                margin: 1.5rem 0;
+                border-radius: 12px;
+                box-shadow: 4px 4px 0 var(--blog-border);
+            }
+
+            .highlight-box .highlight-icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                margin-bottom: 0.75rem;
+            }
+
+            .highlight-box .highlight-icon svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .highlight-box p {
+                font-size: 0.9rem;
+            }
+
+            /* Stat Box */
+            .stat-box {
+                padding: 1.5rem 1rem;
+                margin: 2rem 0;
+                border-radius: 16px;
+                border-width: 3px;
+                box-shadow: 5px 5px 0 var(--blog-border);
+            }
+
+            .stat-box .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stat-box .stat-label {
+                font-size: 0.95rem;
+            }
+
+            /* Engagement Table - Horizontal scroll with visual cue */
+            .table-wrapper {
+                margin: 1.5rem -1rem;
+                padding: 0 1rem;
+                position: relative;
+            }
+
+            .table-wrapper::after {
+                content: '→ scroll';
+                position: absolute;
+                bottom: -1.5rem;
+                right: 1rem;
+                font-size: 0.7rem;
+                color: var(--blog-text-muted);
+                font-family: var(--blog-sans);
+                opacity: 0.7;
+            }
+
+            .engagement-table {
+                font-size: 0.8rem;
+                min-width: 500px;
+                box-shadow: 4px 4px 0 var(--blog-border);
+            }
+
+            .engagement-table th,
+            .engagement-table td {
+                padding: 0.85rem 0.6rem;
+            }
+
+            .engagement-table .action-cell {
+                gap: 0.5rem;
+            }
+
+            .engagement-table .action-icon {
+                width: 26px;
+                height: 26px;
+            }
+
+            /* CTA Section */
+            .blog-cta {
+                padding: 1.5rem 1.25rem;
+                margin: 2.5rem 0;
+                border-radius: 16px;
+                border-width: 3px;
+                box-shadow: 5px 5px 0 var(--blog-border);
+            }
+
+            .blog-cta .cta-badge {
+                font-size: 0.65rem;
+                padding: 0.4rem 0.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .blog-cta h3 {
+                font-size: 1.25rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .blog-cta p {
+                font-size: 0.95rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .blog-cta .btn-primary {
+                font-size: 0.95rem;
+                padding: 1rem 1.5rem;
+            }
+
+            /* Sources Section */
+            .sources-section {
+                margin-top: 2.5rem;
+                padding-top: 1.5rem;
+            }
+
+            .sources-section h2 {
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+            }
+
+            .sources-section a {
+                font-size: 0.85rem;
+                padding: 0.6rem 0.75rem;
+            }
+
+            .sources-section a::before {
+                width: 20px;
+                height: 20px;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Extra small devices (320px) */
+        @media (max-width: 380px) {
+            .blog-layout {
+                padding: 0.75rem 0.75rem 2rem;
+            }
+
+            .post-title {
+                font-size: 1.35rem;
+            }
+
+            .blog-content p,
+            .blog-content ul li,
+            .blog-content ol li {
+                font-size: 0.9rem;
+            }
+
+            .blog-content h2 {
+                font-size: 1.2rem;
+            }
+
+            .pull-quote p {
+                font-size: 0.95rem;
+            }
+
+            .stat-box .stat-number {
+                font-size: 2rem;
+            }
+
+            .blog-cta h3 {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS7C9Q7D0Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GS7C9Q7D0Z');
+    </script>
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <a href="/">
+                        <img src="../logo.svg" alt="PostPulse" class="logo-svg">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-links">
+                    <li><a href="/#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="/#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="/#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="/blog/" class="nav-link nav-link-active">Blog</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="https://app.postpulse.social/login" class="btn-login" rel="noopener">
+                        Login
+                        <i data-lucide="log-in"></i>
+                    </a>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-links">
+                    <li><a href="/#how-it-works" class="mobile-nav-link">How It Works</a></li>
+                    <li><a href="/#pricing" class="mobile-nav-link">Pricing</a></li>
+                    <li><a href="/#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="/blog/" class="mobile-nav-link">Blog</a></li>
+                </ul>
+                <a href="https://app.postpulse.social/login" class="mobile-cta-btn" rel="noopener">
+                    Get Started
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Blog Post Header -->
+        <section class="blog-post-header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="/blog/" class="back-link">
+                        <i data-lucide="arrow-left"></i>
+                        Back to Blog
+                    </a>
+                    <span class="post-category">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 20V10M18 20V4M6 20v-4"/>
+                        </svg>
+                        Algorithm
+                    </span>
+                    <h1 class="post-title">How the <span class="highlight">X Algorithm</span> Works in 2026</h1>
+                    <div class="post-meta">
+                        <span class="post-meta-item">
+                            <i data-lucide="calendar"></i>
+                            January 9, 2026
+                        </span>
+                        <span class="post-meta-item">
+                            <i data-lucide="clock"></i>
+                            8 min read
+                        </span>
+                        <span class="post-meta-item">
+                            <i data-lucide="users"></i>
+                            PostPulse Team
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content with Sidebar -->
+        <div class="blog-layout">
+            <!-- Table of Contents Sidebar -->
+            <aside class="toc-sidebar">
+                <div class="toc-card">
+                    <div class="toc-title">Contents</div>
+                    <ul class="toc-list">
+                        <li><a href="#two-feeds" class="toc-link">The Two Feeds</a></li>
+                        <li><a href="#algorithm-factors" class="toc-link">What It Looks At</a></li>
+                        <li><a href="#hurts-reach" class="toc-link">What Hurts Your Reach</a></li>
+                        <li><a href="#simple-strategy" class="toc-link">Simple Strategy</a></li>
+                        <li><a href="#timing" class="toc-link">Timing Matters</a></li>
+                        <li><a href="#bottom-line" class="toc-link">Bottom Line</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Blog Content -->
+            <article class="blog-content">
+                <p class="lead animate-on-scroll">If you have ever wondered why some posts blow up while others get buried, you are not alone. The X algorithm can feel like a mystery, but it does not have to be.</p>
+
+                <p class="animate-on-scroll">In this post, we will break down exactly how it works in 2026 and what you can do to get more eyes on your content.</p>
+
+                <div class="pull-quote animate-on-scroll">
+                    <p>No fluff. No vague tips. Just the stuff that actually matters.</p>
+                </div>
+
+                <h2 id="two-feeds" class="animate-on-scroll">The Two Feeds You Need to Know About</h2>
+
+                <p class="animate-on-scroll">X has two main feeds right now. Understanding the difference will save you a lot of confusion.</p>
+
+                <p class="animate-on-scroll"><strong>The "For You" Feed</strong> is the default. It is powered by the algorithm and shows you a mix of posts from people you follow, trending topics, and recommendations based on your interests. This is where most people spend their time.</p>
+
+                <p class="animate-on-scroll"><strong>The "Following" Feed</strong> used to be purely chronological. But here is the thing: in late 2025, X started using Grok (their AI) to sort this feed too. Elon Musk confirmed that posts from people you follow are now ranked based on "predicted engagement and relevance to you."</p>
+
+                <p class="animate-on-scroll">So even if someone follows you, your post might not show up at the top of their Following feed unless the algorithm thinks they will engage with it.</p>
+
+                <h2 id="algorithm-factors" class="animate-on-scroll">What the Algorithm Actually Looks At</h2>
+
+                <p class="animate-on-scroll">X open-sourced parts of their algorithm back in 2023, so we have a pretty good idea of what goes into ranking a post. Here are the main factors:</p>
+
+                <h3 class="animate-on-scroll"><span class="h3-number">1</span> Engagement Velocity</h3>
+
+                <p class="animate-on-scroll">The first 30 minutes after you post are critical. If your post gets likes, replies, and retweets quickly, the algorithm sees it as a signal that people find it valuable. That early momentum can push your post to way more people.</p>
+
+                <div class="highlight-box animate-on-scroll">
+                    <div class="highlight-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <div class="highlight-label">Quick Tip</div>
+                    <p>Post when your audience is actually online. Check your analytics to find your best times. For most people, early morning and evening tend to work well.</p>
+                </div>
+
+                <h3 class="animate-on-scroll"><span class="h3-number">2</span> Not All Engagement Is Equal</h3>
+
+                <p class="animate-on-scroll">This is where it gets interesting. The algorithm weighs different types of engagement very differently.</p>
+
+                <div class="table-wrapper animate-on-scroll">
+                    <table class="engagement-table">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Weight</th>
+                                <th style="min-width: 180px;">Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="action-cell">
+                                        <span class="action-icon" style="background: #DCFCE7;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                                        </span>
+                                        Reply (you respond)
+                                    </div>
+                                </td>
+                                <td class="weight-cell weight-high">+75</td>
+                                <td>
+                                    <div class="weight-bar">
+                                        <div class="bar-track"><div class="bar-fill high" style="width: 100%"></div></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-cell">
+                                        <span class="action-icon" style="background: #FEF3C7;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                        </span>
+                                        Regular reply
+                                    </div>
+                                </td>
+                                <td class="weight-cell weight-medium">+13.5</td>
+                                <td>
+                                    <div class="weight-bar">
+                                        <div class="bar-track"><div class="bar-fill medium" style="width: 18%"></div></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-cell">
+                                        <span class="action-icon" style="background: #FEF3C7;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                        </span>
+                                        Profile click + engage
+                                    </div>
+                                </td>
+                                <td class="weight-cell weight-medium">+12</td>
+                                <td>
+                                    <div class="weight-bar">
+                                        <div class="bar-track"><div class="bar-fill medium" style="width: 16%"></div></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-cell">
+                                        <span class="action-icon" style="background: #FEF3C7;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                                        </span>
+                                        Bookmark
+                                    </div>
+                                </td>
+                                <td class="weight-cell weight-medium">+10</td>
+                                <td>
+                                    <div class="weight-bar">
+                                        <div class="bar-track"><div class="bar-fill medium" style="width: 13%"></div></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-cell">
+                                        <span class="action-icon" style="background: #F1F5F9;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.5"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                                        </span>
+                                        Retweet
+                                    </div>
+                                </td>
+                                <td class="weight-cell weight-low">+1</td>
+                                <td>
+                                    <div class="weight-bar">
+                                        <div class="bar-track"><div class="bar-fill low" style="width: 1.3%"></div></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-cell">
+                                        <span class="action-icon" style="background: #F1F5F9;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                        </span>
+                                        Like
+                                    </div>
+                                </td>
+                                <td class="weight-cell weight-low">+0.5</td>
+                                <td>
+                                    <div class="weight-bar">
+                                        <div class="bar-track"><div class="bar-fill low" style="width: 0.7%"></div></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="animate-on-scroll">Look at those numbers. A reply where you actually respond back is worth 150 times more than a like. This tells you something important: the algorithm rewards conversations, not just passive scrolling.</p>
+
+                <div class="stat-box animate-on-scroll">
+                    <span class="stat-number">150x</span>
+                    <span class="stat-label">A replied-to comment is worth 150x more than a like</span>
+                </div>
+
+                <h3 class="animate-on-scroll"><span class="h3-number">3</span> Your Account Credibility</h3>
+
+                <p class="animate-on-scroll">The algorithm also looks at your account itself. Things like:</p>
+
+                <ul class="animate-on-scroll">
+                    <li>Whether you are verified (X Premium does give you a boost)</li>
+                    <li>Your follower-to-following ratio</li>
+                    <li>How consistently you post</li>
+                    <li>Whether you have had any violations or bans</li>
+                </ul>
+
+                <p class="animate-on-scroll">This does not mean you need to buy X Premium to grow. But it does mean that building a credible account over time helps your content reach more people.</p>
+
+                <h3 class="animate-on-scroll"><span class="h3-number">4</span> Content Type Matters</h3>
+
+                <p class="animate-on-scroll">Not all posts are created equal in the algorithm's eyes.</p>
+
+                <p class="animate-on-scroll"><strong>Images</strong> boost engagement by about 150% compared to text-only posts.</p>
+
+                <p class="animate-on-scroll"><strong>Native video</strong> (uploaded directly to X, not linked from YouTube) can drive 10x more engagement. Keep it under 2 minutes and 20 seconds for best results.</p>
+
+                <p class="animate-on-scroll"><strong>Threads</strong> get about 3x more engagement than single posts. They keep people on the platform longer, which X loves.</p>
+
+                <p class="animate-on-scroll"><strong>External links</strong> take a hit. X has been penalizing posts with links by 30-50% in reach. The workaround? Put your link in the first reply instead of the main post.</p>
+
+                <h3 class="animate-on-scroll"><span class="h3-number">5</span> Relevance to Your Audience</h3>
+
+                <p class="animate-on-scroll">The algorithm pays attention to what topics you usually post about and what your followers engage with. If you normally post about marketing and suddenly start posting about cooking, your reach might drop because your audience did not follow you for cooking content.</p>
+
+                <p class="animate-on-scroll">This is why niche accounts often grow faster than general accounts. The algorithm can more easily match your content with people who care about that topic.</p>
+
+                <h2 id="hurts-reach" class="animate-on-scroll">The Stuff That Hurts Your Reach</h2>
+
+                <p class="animate-on-scroll">Knowing what to avoid is just as important as knowing what to do.</p>
+
+                <ul class="animate-on-scroll">
+                    <li><strong>External links in the main post:</strong> Put them in the first reply instead</li>
+                    <li><strong>Too many hashtags:</strong> Stick to 1-2 relevant ones. This is not Instagram</li>
+                    <li><strong>Posting and ghosting:</strong> If you do not respond to comments, you are leaving a ton of algorithmic value on the table</li>
+                    <li><strong>Inconsistent posting:</strong> The algorithm favors accounts that show up regularly</li>
+                    <li><strong>Buying followers:</strong> Fake followers do not engage, which tanks your engagement rate and signals to the algorithm that your content is not worth showing</li>
+                </ul>
+
+                <h2 id="simple-strategy" class="animate-on-scroll">A Simple Strategy That Works</h2>
+
+                <p class="animate-on-scroll">Based on everything we know about the algorithm, here is a straightforward approach:</p>
+
+                <ol class="animate-on-scroll">
+                    <li><strong>Post 2-3 times daily</strong> at times when your audience is online</li>
+                    <li><strong>Use images or native video</strong> in most of your posts</li>
+                    <li><strong>Write threads</strong> for your best content instead of single posts</li>
+                    <li><strong>Reply to every comment</strong> in the first hour, especially ones where you can start a real conversation</li>
+                    <li><strong>Engage before you post.</strong> Spend 10-15 minutes replying to other posts before you drop your own content. This warms up your account</li>
+                    <li><strong>Put links in the first reply</strong> instead of the main post</li>
+                </ol>
+
+                <p class="animate-on-scroll">None of this is complicated. The hard part is doing it consistently.</p>
+
+                <h2 id="timing" class="animate-on-scroll">What About Timing?</h2>
+
+                <p class="animate-on-scroll">Recency still matters. A lot, actually. In 2026, X is pushing real-time content more than ever. If something is trending and you post about it within minutes, you can get 8,000+ impressions. Post about the same thing a day later and you might get half that.</p>
+
+                <p class="animate-on-scroll">The lesson: stay plugged in to what is happening in your niche and be ready to jump on relevant trends quickly.</p>
+
+                <h2 id="bottom-line" class="animate-on-scroll">The Bottom Line</h2>
+
+                <p class="animate-on-scroll">The X algorithm in 2026 is not as mysterious as it seems. It basically comes down to:</p>
+
+                <ul class="animate-on-scroll">
+                    <li>Get engagement fast (especially in the first 30 minutes)</li>
+                    <li>Prioritize replies and conversations over likes</li>
+                    <li>Use visual content</li>
+                    <li>Stay consistent</li>
+                    <li>Actually talk to people</li>
+                </ul>
+
+                <p class="animate-on-scroll">The algorithm rewards content that keeps people on the platform and sparks real interactions. If you focus on creating stuff worth talking about and then actually participate in those conversations, you will do better than 90% of people who just post and disappear.</p>
+
+                <p class="animate-on-scroll">It takes time. But it works.</p>
+
+                <!-- CTA Section -->
+                <div class="blog-cta animate-on-scroll">
+                    <span class="cta-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        Stop Staring at Blank Screens
+                    </span>
+                    <h3>Want to create better content faster?</h3>
+                    <p>PostPulse learns your voice and helps you generate authentic posts in just 5 minutes a day.</p>
+                    <a href="https://app.postpulse.social/login" class="btn-primary" rel="noopener">
+                        Try PostPulse for $0.99
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="sources-section animate-on-scroll">
+                    <h2>Sources</h2>
+                    <ul>
+                        <li><a href="https://socialbee.com/blog/twitter-algorithm/" rel="noopener" target="_blank">SocialBee: Understanding How the X Algorithm Works</a></li>
+                        <li><a href="https://sproutsocial.com/insights/twitter-algorithm/" rel="noopener" target="_blank">Sprout Social: How the Twitter Algorithm Works</a></li>
+                        <li><a href="https://www.socialmediatoday.com/news/x-formerly-twitter-sorts-following-feed-algorithm-ai-grok/806617/" rel="noopener" target="_blank">Social Media Today: X Now Algorithmically Ranks Posts in Following Feed</a></li>
+                        <li><a href="https://www.markmorphew.com/strategies-to-grow-your-twitter-x-followers/" rel="noopener" target="_blank">Mark Morphew: The 2025 X Algorithm Decoded</a></li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; 2026 PostPulse. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <span class="footer-divider">•</span>
+                    <a href="/terms-of-service.html" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@0.259.0/dist/umd/lucide.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Mobile Menu Toggle
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            if (mobileMenuToggle && mobileNavOverlay) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    this.classList.toggle('active');
+                    mobileNavOverlay.classList.toggle('active');
+                });
+
+                mobileNavLinks.forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        mobileMenuToggle.classList.remove('active');
+                        mobileNavOverlay.classList.remove('active');
+                    });
+                });
+
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && mobileNavOverlay.classList.contains('active')) {
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        mobileMenuToggle.classList.remove('active');
+                        mobileNavOverlay.classList.remove('active');
+                    }
+                });
+            }
+
+            // Reading Progress Bar
+            const progressBar = document.getElementById('readingProgress');
+            const article = document.querySelector('.blog-content');
+
+            function updateProgress() {
+                const articleTop = article.offsetTop;
+                const articleHeight = article.offsetHeight;
+                const windowHeight = window.innerHeight;
+                const scrollY = window.scrollY;
+
+                const start = articleTop - windowHeight;
+                const end = articleTop + articleHeight - windowHeight;
+                const progress = Math.min(Math.max((scrollY - start) / (end - start), 0), 1);
+
+                progressBar.style.width = (progress * 100) + '%';
+            }
+
+            // TOC Active State
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = document.querySelectorAll('.blog-content h2[id]');
+
+            function updateTOC() {
+                let currentSection = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    if (window.scrollY >= sectionTop) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Scroll Animations
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+            function checkVisibility() {
+                animatedElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+
+                    if (rect.top < windowHeight * 0.85) {
+                        el.classList.add('visible');
+                    }
+                });
+            }
+
+            // Smooth scroll for TOC links
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const offset = 100;
+                        const targetPosition = targetElement.offsetTop - offset;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Throttle function for performance
+            function throttle(func, limit) {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                }
+            }
+
+            // Combined scroll handler
+            const handleScroll = throttle(function() {
+                updateProgress();
+                updateTOC();
+                checkVisibility();
+            }, 16);
+
+            window.addEventListener('scroll', handleScroll);
+
+            // Initial calls
+            updateProgress();
+            updateTOC();
+            checkVisibility();
+        });
+    </script>
+</body>
+</html>

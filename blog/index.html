@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>Blog | PostPulse - X Growth Tips & Strategies</title>
+    <meta name="description" content="Learn how to grow your X audience with actionable tips on the algorithm, content strategy, and building your personal brand. Updated for 2026.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://postpulse.social/blog/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://postpulse.social/blog/">
+    <meta property="og:title" content="Blog | PostPulse - X Growth Tips & Strategies">
+    <meta property="og:description" content="Learn how to grow your X audience with actionable tips on the algorithm, content strategy, and building your personal brand.">
+    <meta property="og:image" content="https://postpulse.social/open-graph.png">
+    <meta property="og:site_name" content="PostPulse">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | PostPulse - X Growth Tips & Strategies">
+    <meta name="twitter:description" content="Learn how to grow your X audience with actionable tips on the algorithm, content strategy, and building your personal brand.">
+    <meta name="twitter:image" content="https://postpulse.social/open-graph.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        /* Blog Listing Styles */
+        .blog-header {
+            padding: 4rem 0 3rem;
+            text-align: center;
+            background: var(--background);
+        }
+
+        .blog-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+        }
+
+        .blog-subtitle {
+            font-family: var(--font-body);
+            font-size: var(--font-lg);
+            color: var(--medium-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 3rem 0 5rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border: var(--border-thick) solid var(--border-black);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 6px 6px 0 var(--border-black);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 var(--border-black);
+        }
+
+        .blog-card-category {
+            display: inline-block;
+            background: var(--accent-purple);
+            color: var(--white);
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card-title {
+            font-family: var(--font-display);
+            font-size: var(--font-xl);
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .blog-card-excerpt {
+            font-family: var(--font-body);
+            font-size: var(--font-sm);
+            color: var(--medium-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: var(--font-body);
+            font-size: var(--font-xs);
+            color: var(--medium-gray);
+        }
+
+        .blog-card-date {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .blog-card-date i {
+            width: 14px;
+            height: 14px;
+        }
+
+        .blog-card-readtime {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .blog-card-readtime i {
+            width: 14px;
+            height: 14px;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-display);
+            font-size: var(--font-sm);
+            font-weight: 600;
+            color: var(--primary-black);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-home:hover {
+            color: var(--accent-purple);
+        }
+
+        .back-home i {
+            width: 18px;
+            height: 18px;
+        }
+
+        @media (min-width: 768px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 900px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS7C9Q7D0Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GS7C9Q7D0Z');
+    </script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <a href="/">
+                        <img src="../logo.svg" alt="PostPulse" class="logo-svg">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-links">
+                    <li><a href="/#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="/#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="/#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="/blog/" class="nav-link nav-link-active">Blog</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="https://app.postpulse.social/login" class="btn-login" rel="noopener">
+                        Login
+                        <i data-lucide="log-in"></i>
+                    </a>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-links">
+                    <li><a href="/#how-it-works" class="mobile-nav-link">How It Works</a></li>
+                    <li><a href="/#pricing" class="mobile-nav-link">Pricing</a></li>
+                    <li><a href="/#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="/blog/" class="mobile-nav-link">Blog</a></li>
+                </ul>
+                <a href="https://app.postpulse.social/login" class="mobile-cta-btn" rel="noopener">
+                    Get Started
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Blog Header -->
+        <section class="blog-header">
+            <div class="container">
+                <a href="/" class="back-home">
+                    <i data-lucide="arrow-left"></i>
+                    Back to Home
+                </a>
+                <h1 class="blog-title">The PostPulse Blog</h1>
+                <p class="blog-subtitle">Tips, strategies, and insights to help you grow your X audience and build your personal brand.</p>
+            </div>
+        </section>
+
+        <!-- Blog Grid -->
+        <section class="container">
+            <div class="blog-grid">
+                <!-- Blog Post Card -->
+                <a href="/blog/x-algorithm-2026.html" class="blog-card">
+                    <span class="blog-card-category">Algorithm</span>
+                    <h2 class="blog-card-title">How the X Algorithm Works in 2026</h2>
+                    <p class="blog-card-excerpt">A plain English breakdown of how X decides what shows up in your feed, what engagement actually matters, and how to use it to your advantage.</p>
+                    <div class="blog-card-meta">
+                        <span class="blog-card-date">
+                            <i data-lucide="calendar"></i>
+                            Jan 9, 2026
+                        </span>
+                        <span class="blog-card-readtime">
+                            <i data-lucide="clock"></i>
+                            8 min read
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Placeholder for future posts -->
+                <!-- Add more blog cards here as you create new posts -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; 2026 PostPulse. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <span class="footer-divider">•</span>
+                    <a href="/terms-of-service.html" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@0.259.0/dist/umd/lucide.js"></script>
+    <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
