@@ -1299,6 +1299,109 @@ body {
     margin: 0;
 }
 
+/* Blog Teaser Section */
+.blog-teaser {
+    padding: 5rem 0;
+    background: var(--white);
+    border-top: var(--border-thick) solid var(--border-black);
+}
+
+.blog-teaser-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.blog-teaser-card {
+    display: block;
+    background: var(--background);
+    border: var(--border-thick) solid var(--border-black);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0 1.5rem;
+    box-shadow: 6px 6px 0 var(--border-black);
+    text-decoration: none;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.blog-teaser-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--border-black);
+}
+
+.blog-teaser-badge {
+    display: inline-block;
+    background: var(--accent-purple);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.blog-teaser-title {
+    font-family: var(--font-display);
+    font-size: var(--font-xl);
+    font-weight: 700;
+    color: var(--primary-black);
+    margin: 0 0 0.75rem 0;
+    line-height: 1.3;
+}
+
+.blog-teaser-excerpt {
+    font-family: var(--font-body);
+    font-size: var(--font-sm);
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin: 0 0 1.25rem 0;
+}
+
+.blog-teaser-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: var(--font-sm);
+    font-weight: 600;
+    color: var(--accent-purple);
+}
+
+.blog-teaser-link i {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s ease;
+}
+
+.blog-teaser-card:hover .blog-teaser-link i {
+    transform: translateX(4px);
+}
+
+.view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-display);
+    font-size: var(--font-sm);
+    font-weight: 600;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.view-all-link:hover {
+    color: var(--accent-purple);
+}
+
+.view-all-link i {
+    width: 16px;
+    height: 16px;
+}
+
 /* Footer - Neo Brutalism */
 .footer {
     padding: 3rem 0;
@@ -1689,6 +1792,23 @@ body {
 
     .faq-question {
         font-size: var(--font-base);
+    }
+
+    .blog-teaser {
+        padding: 3rem 0;
+    }
+
+    .blog-teaser-card {
+        padding: 1.5rem;
+        margin: 1.5rem 0 1rem;
+    }
+
+    .blog-teaser-title {
+        font-size: var(--font-lg);
+    }
+
+    .blog-teaser-excerpt {
+        font-size: var(--font-xs);
     }
 }
 
