@@ -1,4 +1,35 @@
+# PostPulse Landing Site - robots.txt
+# https://postpulse.social
+
+# Default rules for all crawlers
 User-agent: *
 Allow: /
 
+# Disallow non-content paths
+Disallow: /assets/js/
+Disallow: /*.json$
+
+# Allow CSS and images for rendering
+Allow: /assets/css/
+Allow: /assets/images/
+Allow: /*.svg$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.webp$
+
+# Google-specific rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing-specific rules
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
 Sitemap: https://postpulse.social/sitemap.xml
+
+# Host directive (legacy but still used by some crawlers)
+Host: https://postpulse.social
